@@ -6,7 +6,6 @@ import './App.css';
 import AuthModal from './Components/Modal/AuthModal';
 
 function App() {
-	return <div className="App">Hello World!!!</div>;
 	return (
 		<div className="App">
 			<Navbar />
