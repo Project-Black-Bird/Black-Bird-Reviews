@@ -19,7 +19,7 @@ class Navbar extends Component {
     return (
       <div className="nav-container">
         <h1>
-          <Link to="/" className="nav-links">
+          <Link to="/" className="nav-logo">
             Blackbird Reviews
           </Link>
         </h1>

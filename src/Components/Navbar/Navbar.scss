@@ -1,5 +1,5 @@
 .nav-container {
-    height: 150px;
+    height: 125px;
     // border-bottom: 1px solid black;
     background-color: rgb(43, 113, 128);
     border-bottom: rgb(43, 113, 128);
@@ -14,7 +14,22 @@
     // background-size: 150px;
 }
 
+.nav-logo {
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 36px;
+}
+
 .nav-links {
     text-decoration: none;
     color: whitesmoke;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 36px;
 }
