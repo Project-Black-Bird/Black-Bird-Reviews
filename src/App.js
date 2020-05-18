@@ -4,12 +4,7 @@ import './App.css';
 import AuthModal from './Components/Modal/AuthModal';
 
 function App() {
-	return (
-		<div className="App">
-			Hello World!!!
-			<AuthModal />
-		</div>
-	);
+	return <div className="App">Hello World!!!</div>;
 }
 
 export default App;
