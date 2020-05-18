@@ -1,4 +1,10 @@
 const routes = require("express").Router();
+const auth = require("./controllers/auth");
+
+const noOp = (req, res) => {
+  res.status(501).json({});
+};
+
 // import controller files here
 // const controler = require('controller')
 /*
@@ -25,8 +31,17 @@ const routes = require("express").Router();
   routes.get('/user',controller.getUser) 
   is accessible at '/api/user'
 */
+// auth endpoints
+routes.post("/auth/login", auth.login);
+routes.post("/auth/register", auth.register);
+routes.post("/auth/logout", auth.logout);
+
 routes.get("/", function helloApi(req, res) {
   res.send("hello from api");
 });
+/* post endpoints */
+// get all posts
+routes.get("/posts", noOp);
+routes.get("/post/", noOp);
 // index.js expects object routes as the default export
 module.exports = routes;
