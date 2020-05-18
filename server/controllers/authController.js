@@ -1,3 +1,6 @@
+// Auth methods - register, login, logout
+// 
+
 const bcrypt = require('bcryptjs'),
       nodemailer = require('nodemailer');
 
@@ -10,7 +13,7 @@ module.exports = {
         if(checkUser[0]){
             return res.status(400).send('Email already in use');
         }
-
+ 
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(password, salt);
         const newUser = await db.users.register_user(username,email, hash, image);
