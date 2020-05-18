@@ -1,4 +1,10 @@
 const routes = require("express").Router();
+const auth = require("./controllers/auth");
+
+const notImplemented = (req, res) => {
+  res.status(501).json({});
+};
+
 // import controller files here
 // const controler = require('controller')
 /*
@@ -25,8 +31,25 @@ const routes = require("express").Router();
   routes.get('/user',controller.getUser) 
   is accessible at '/api/user'
 */
+// auth endpoints
+routes.post("/auth/login", auth.login);
+routes.post("/auth/register", auth.register);
+routes.post("/auth/logout", auth.logout);
+
 routes.get("/", function helloApi(req, res) {
   res.send("hello from api");
 });
+/* post endpoints */
+// get all posts
+routes.get("/posts", notImplemented);
+// get post by id
+routes.get("/posts/:id", notImplemented);
+// update post by id
+routes.put("/posts/:id", notImplemented);
+// create post
+routes.post("/post", notImplemented);
+// delete a post by id
+routes.delete("/post/:id", notImplemented);
+
 // index.js expects object routes as the default export
 module.exports = routes;
