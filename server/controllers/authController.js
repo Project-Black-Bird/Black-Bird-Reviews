@@ -2,7 +2,8 @@
 // 
 
 const bcrypt = require('bcryptjs'),
-      nodemailer = require('nodemailer');
+      nodemailer = require('nodemailer'),
+      {EMAIL, EMAIL_PASSWORD} = process.env;
 
 module.exports = {
     register: async(req,res) =>{
@@ -19,6 +20,31 @@ module.exports = {
         const newUser = await db.users.register_user(username,email, hash, image);
         req.session.user = newUser[0];
         // Nodemailer goes here
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.mail.yahoo.com',
+            port: 465,
+            service: 'yahoo',
+            secure: false,
+            auth:{
+                user: EMAIL,
+                pass: EMAIL_PASSWORD
+            }
+        });
+        transporter.sendMail({
+            from: `BlackBirdReviews <${EMAIL}>`,
+            to:email,
+            subject: 'Thank You for Registering!',
+            text: 'Welcome to Black Bird Reviews, Thank you for signing up with us. We hope to hear your thoughts on products you want to review soon!'
+        }),(err, success) =>{
+            if(err){
+                console.log(err);
+                res.status(500).send(`An Error has occured: ${err}`);
+            }
+            else{
+                console.log(success)
+                res.status(201).send(req.session.user);
+            }
+        }
     },
     login: async(req,res) =>{
         const {email, password} = req.body,
