@@ -18,11 +18,11 @@ class Navbar extends Component {
     return (
       <div className="nav-container">
         <h1>
-          <Link to="/" className="nav-link">
+          <Link to="/" className="nav-links">
             Blackbird Reviews
           </Link>
         </h1>
-        <div className="nav-dropdown" onClick={this.handletoggle}>
+        {/* <div className="nav-dropdown" onClick={this.handletoggle}>
           ☰
         </div>
         {this.state.dropdownView ? (
@@ -33,7 +33,7 @@ class Navbar extends Component {
               </Link>
             </span>
           </nav>
-        ) : null}
+        ) : null} */}
         <nav className="desktop-links">
           <span>
             <Link to="/login" className="nav-links">
