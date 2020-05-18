@@ -1,7 +1,7 @@
 const routes = require("express").Router();
 const auth = require("./controllers/auth");
 
-const noOp = (req, res) => {
+const notImplemented = (req, res) => {
   res.status(501).json({});
 };
 
@@ -41,7 +41,15 @@ routes.get("/", function helloApi(req, res) {
 });
 /* post endpoints */
 // get all posts
-routes.get("/posts", noOp);
-routes.get("/post/", noOp);
+routes.get("/posts", notImplemented);
+// get post by id
+routes.get("/posts/:id", notImplemented);
+// update post by id
+routes.put("/posts/:id", notImplemented);
+// create post
+routes.post("/post", notImplemented);
+// delete a post by id
+routes.delete("/post/:id", notImplemented);
+
 // index.js expects object routes as the default export
 module.exports = routes;
