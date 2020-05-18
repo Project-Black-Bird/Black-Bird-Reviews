@@ -1,28 +1,33 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import "./Navbar.scss";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import './Navbar.scss';
+
+import { connect } from 'react-redux';
+import AuthModal from '../Modal/AuthModal';
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dropdownView: false,
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			dropdownView: false,
+			showModal: false,
+		};
+	}
 
-  handletoggle = () => {
-    this.setState({ dropdownView: !this.state.dropdownView });
-  };
+	handletoggle = () => {
+		this.setState({ dropdownView: !this.state.dropdownView });
+		this.setState({ showModal: !this.state.showModal });
+	};
 
-  render() {
-    return (
-      <div className="nav-container">
-        <h1>
-          <Link to="/" className="nav-links">
-            Blackbird Reviews
-          </Link>
-        </h1>
-        {/* <div className="nav-dropdown" onClick={this.handletoggle}>
+	render() {
+		return (
+			<div className="nav-container">
+				<h1>
+					<Link to="/" className="nav-links">
+						Blackbird Reviews
+					</Link>
+				</h1>
+				{/* <div className="nav-dropdown" onClick={this.handletoggle}>
           ☰
         </div>
         {this.state.dropdownView ? (
@@ -34,17 +39,16 @@ class Navbar extends Component {
             </span>
           </nav>
         ) : null} */}
-        <nav className="desktop-links">
-          <span>
-            <Link to="/login" className="nav-links">
-              Login/Register
-            </Link>
-          </span>
-        </nav>
-      </div>
-    );
-  }
+				<nav className="desktop-links">
+					<span>
+						<Link to="/login" className="nav-links">
+							Login/Register
+						</Link>
+					</span>
+				</nav>
+			</div>
+		);
+	}
 }
 
 export default withRouter(Navbar);
-
