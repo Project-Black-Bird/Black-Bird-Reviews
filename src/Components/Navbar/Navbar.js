@@ -38,7 +38,7 @@ class Navbar extends Component {
         <nav className="desktop-links">
           <span>
             <Link to="/login" className="nav-links">
-              Login/Register
+              Log In/Register
             </Link>
           </span>
         </nav>
