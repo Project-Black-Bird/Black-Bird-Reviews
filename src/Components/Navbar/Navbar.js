@@ -52,12 +52,12 @@ class Navbar extends Component {
 						>
 							Log In/Register
 						</Link>
-                        {/* <Link
+                        <Link
 							to="/profile"
 							className="nav-links"
 							onClick={() => this.handleToggle}>
 							Profile
-						</Link> */}
+						</Link>
 					</h1>
 				</nav>
 				{/* {this.state.showModal ? (

@@ -55,7 +55,7 @@ class Profile extends Component {
             <div className='profile-container'>
                 <span className='profile-text'>
                     <h1>My Profile</h1>
-                    <button className='logout-button' onClick={this.handleLogout}>Logout</button>
+                    <button className='logout-button' onClick={this.handleLogout}>Log Out</button>
                     <h1>Account Details</h1>
                     <h3>{this.props.user.username}</h3>
                     {!this.state.editView
