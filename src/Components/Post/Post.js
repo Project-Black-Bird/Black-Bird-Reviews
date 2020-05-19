@@ -15,14 +15,24 @@ function Post(props) {
             <button className="delete">Delete</button>
           </div>
         ) : null}
+        <button type="button" className="like">
+          {`Like ${props.likes || 0}`}
+        </button>
+        <button type="button" className="share">
+          Share
+        </button>
       </div>
     </div>
   );
 }
+// Expected prop types
+// help catch bugs by
+// throwing errors
 Post.propTypes = {
   image: PropTypes.string.isRequired,
   review: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  likes: PropTypes.number.isRequired,
   user: PropTypes.object.isRequired,
 };
 function mapStateToProps(state) {
