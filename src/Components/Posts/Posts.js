@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import Post from "../Post";
+import Post from "../Post/Post";
+import "./Posts.css";
 import posts from "./POSTS_MOCK.json";
 class Posts extends React.Component {
   state = {
@@ -26,6 +27,7 @@ class Posts extends React.Component {
     this.getAllPosts();
   }
   render() {
-    return <div className="Posts-container">{this.state.posts}</div>;
+    return <div className="Posts-container">{this.renderPosts()}</div>;
   }
 }
+export default Posts;
