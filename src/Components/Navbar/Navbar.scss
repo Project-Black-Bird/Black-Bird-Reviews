@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .nav-container {
     height: 125px;
     // border-bottom: 1px solid black;
@@ -12,24 +14,43 @@
     // background-repeat: no-repeat;
     // background-position: left bottom;
     // background-size: 150px;
+
+
+    
 }
 
 .nav-logo {
-    text-decoration: none;
-    color: whitesmoke;
-    font-family: Poppins;
+    color: $secondary-font-color;
+    font-family: $primary-font-family;
     font-style: normal;
     font-weight: bold;
-    font-size: 38px;
+    font-size: 28px;
     line-height: 36px;
+    text-decoration: none;
 }
 
-.nav-links {
-    text-decoration: none;
-    color: whitesmoke;
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 36px;
+.desktop-links {
+    font-size: 24px;
+    // align-items: center;
+    // display: none;
+
+    .nav-links {
+        text-decoration: none;
+        color: $secondary-font-color;
+        font-family: $primary-font-family;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 36px;
+    }
 }
+
+// .nav-links {
+//     text-decoration: none;
+//     color: $secondary-font-color;
+//     font-family: $primary-font-family;
+//     font-style: normal;
+//     font-weight: bold;
+//     font-size: 24px;
+//     line-height: 36px;
+// }

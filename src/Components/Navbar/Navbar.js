@@ -24,7 +24,7 @@ class Navbar extends Component {
 		return (
 			<div className="nav-container">
 				<h1>
-					<Link to="/" className="nav-links">
+					<Link to="/" className="nav-logo">
 						Blackbird Reviews
 					</Link>
 				</h1>
@@ -41,14 +41,23 @@ class Navbar extends Component {
           </nav>
         ) : null} */}
 				<nav className="desktop-links">
-					<span>
+					<h1>
+                    {/* <Link to="/" className="nav-logo">
+						Blackbird Reviews
+					</Link> */}
 						<Link
 							to="/login"
 							className="nav-links"
 							onClick={() => this.handleToggle}>
 							Login/Register
 						</Link>
-					</span>
+                        {/* <Link
+							to="/profile"
+							className="nav-links"
+							onClick={() => this.handleToggle}>
+							Profile
+						</Link> */}
+					</h1>
 				</nav>
 				{/* {this.state.showModal ? (
 					<AuthModal toggleFn={this.handleToggle} />

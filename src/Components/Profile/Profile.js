@@ -10,17 +10,17 @@ class Profile extends Component {
     constructor(props){
         super(props);
         this.state = {
-            user: '',
+            username: '',
             email: '',
             editView: false
         }
     }
 
-    componentDidMount(){
-        if(!this.props.user.email){
-            this.props.history.push('/')
-        }
-    }
+    // componentDidMount(){
+    //     if(!this.props.user.email){
+    //         this.props.history.push('/')
+    //     }
+    // }
 
     handleInput = (val) => {
         this.setState({email: val})
@@ -31,7 +31,7 @@ class Profile extends Component {
     }
 
     handleLogout = () => {
-        axios.get('auth/logout')
+        axios.post('auth/logout')
         .then(() => {
             this.props.logoutUser();
             this.props.history.push('/')
@@ -41,16 +41,38 @@ class Profile extends Component {
 
     updateUseremail = () => {
         const {email} = this.state;
-        axios.put(`/api/`)
+        axios.put(`/api/user/${this.props.user.user_id}`, {email})
+        .then(res => {
+            this.props.getUser(res.data[0]);
+            this.handleEditView();
+            this.setState({email: ''});
+        })
+        .catch(err => console.log(err));
     }
 
     render() {
         return (
-            <div>
+            <div className='profile-container'>
+                <span className='profile-text'>
+                    <h1>My Profile</h1>
+                    <button className='logout-button' onClick={this.handleLogout}>Logout</button>
+                    <h1>Account Details</h1>
+                    <h3>{this.props.user.username}</h3>
+                    {!this.state.editView
+                    ?<h2>{this.props.user.email} <button className='edit-button' onClick={this.handleEditView}>Edit</button></h2>
+                    : (<div>
+                        <input
+                        value={this.state.email}
+                        placeholder='New Email'
+                        onChange={(e) => this.handleInput(e.target.value)}/>
+                    </div>)}
+                </span>
                 
             </div>
         )
     }
 }
 
-export default Profile
+const mapStateToProps = reduxState => reduxState;
+
+export default withRouter(connect(mapStateToProps, {getUser, logoutUser})(Profile));
