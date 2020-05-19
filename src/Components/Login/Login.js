@@ -21,7 +21,7 @@ class Login extends Component {
 
 	componentDidMount() {
 		if (this.props.user.email) {
-			this.props.history.push('/dash');
+			this.props.history.push('/');
 		}
 	}
 
@@ -37,12 +37,12 @@ class Login extends Component {
 		const { username, email, password, verPassword, picture } = this.state;
 		if (password !== '' && password === verPassword) {
 			axios
-				.post('/auth/register', { username, email, password, picture })
+				.post('/api/auth/register', { username, email, password, picture }, {withCredentials: true})
 				.then(res => {
 					//set user in redux or local state
 					this.props.getUser(res.data);
 					//route user to the dashboard
-					this.props.history.push('/dash');
+					this.props.history.push('/');
 				})
 				.catch(err => console.log(err));
 		} else {
@@ -53,12 +53,12 @@ class Login extends Component {
 	handleLogin = () => {
 		const { email, password } = this.state;
 		axios
-			.post('/auth/login', { email, password })
+			.post('/api/auth/login', { email, password }, {withCredentials: true})
 			.then(res => {
 				//set user to redux or local state
 				this.props.getUser(res.data);
 				//route the user to dashboard
-				this.props.history.push('/dash');
+				this.props.history.push('/');
 			})
 			.catch(err => console.log(err));
 	};
@@ -103,21 +103,21 @@ class Login extends Component {
 								placeholder="Verify Password"
 								onChange={e => this.handleInput(e)}
 							/>
-							{/* <input
+							<input
 								value={this.state.picture}
 								name="picture"
 								placeholder="Profile image URL"
 								onChange={e => this.handleInput(e)}
-							/> */}
+							/>
 							<button onClick={this.handleRegister}>Submit</button>
 							<p>
 								Have an account?{' '}
-								<span onClick={this.handleToggle}>Login Here</span>
+								<span onClick={this.handleToggle}>Log In Here</span>
 							</p>
 						</>
 					) : (
 						<>
-							<button onClick={this.handleLogin}>Login</button>
+							<button onClick={this.handleLogin}>Log In</button>
 							<p>
 								Don't have an account?{' '}
 								<span onClick={this.handleToggle}>Register Here</span>

@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs'),
 
 module.exports = {
     register: async(req,res) =>{
-        const {username, email, password, image} = req.body,
+        const {username, email, password, picture} = req.body,
               db = req.app.get('db');
 
         const checkUser = await db.users.check_user(email);
@@ -17,7 +17,7 @@ module.exports = {
  
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(password, salt);
-        const newUser = await db.users.register_user(username,email, hash, image);
+        const newUser = await db.users.register_user(username,email, hash, picture);
         req.session.user = newUser[0];
         // Nodemailer goes here
         let transporter = nodemailer.createTransport({
@@ -32,7 +32,7 @@ module.exports = {
         });
         transporter.sendMail({
             from: `BlackBirdReviews <${EMAIL}>`,
-            to:email,
+            to: email,
             subject: 'Thank You for Registering!',
             text: 'Welcome to Black Bird Reviews, Thank you for signing up with us. We hope to hear your thoughts on products you want to review soon!'
         }),(err, success) =>{

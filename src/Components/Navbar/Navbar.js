@@ -48,8 +48,9 @@ class Navbar extends Component {
 						<Link
 							to="/login"
 							className="nav-links"
-							onClick={() => this.handleToggle}>
-							Login/Register
+							onClick={() => this.handleToggle}
+						>
+							Log In/Register
 						</Link>
                         {/* <Link
 							to="/profile"
