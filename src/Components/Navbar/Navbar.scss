@@ -1,14 +1,56 @@
+@import '../../variables';
+
 .nav-container {
-    height: 150px;
+    height: 125px;
     // border-bottom: 1px solid black;
     background-color: rgb(43, 113, 128);
+    border-bottom: rgb(43, 113, 128);
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    // background-image: url("https://b.thumbs.redditmedia.com/gtZF-udbUhsYH-wNsWWv73iKF1d1yDELoxRfsXAtFmI.png");
+    // background-image: url("https://igappblobs.azureedge.net/users/1931849/2182611/apple-touch-icon-precomposed.png?v=12");
+    // background-repeat: no-repeat;
+    // background-position: left bottom;
+    // background-size: 150px;
+
+
+    
 }
 
-.nav-links {
+.nav-logo {
+    color: $secondary-font-color;
+    font-family: $primary-font-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 36px;
     text-decoration: none;
-    color: whitesmoke;
 }
+
+.desktop-links {
+    font-size: 24px;
+    // align-items: center;
+    // display: none;
+
+    .nav-links {
+        text-decoration: none;
+        color: $secondary-font-color;
+        font-family: $primary-font-family;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 36px;
+    }
+}
+
+// .nav-links {
+//     text-decoration: none;
+//     color: $secondary-font-color;
+//     font-family: $primary-font-family;
+//     font-style: normal;
+//     font-weight: bold;
+//     font-size: 24px;
+//     line-height: 36px;
+// }

@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .login-container {
 	height: calc(100vh - 150px);
 	background-color: white;
@@ -34,26 +36,18 @@
 }
 
 .authentication-info button {
-	height: 42px;
-	width: 320px;
-	background-color: #2a7180;
-	color: white;
-	// border: 2px solid white;
-	// border-radius: 15px;
-	font-size: 16px;
-	font-weight: bold;
-	// padding-left: 20px;
+	@include button;
 }
 
-.authentication-info button:hover {
-	background-color: white;
-	color: #2a7180;
-}
+// .authentication-info button:hover {
+// 	background-color: white;
+// 	color: #2a7180;
+// }
 
-.authentication-info button:active {
-	background-color: transparent;
-	color: #444445;
-}
+// .authentication-info button:active {
+// 	background-color: transparent;
+// 	color: #444445;
+// }
 
 .authentication-info span {
 	text-decoration: underline;

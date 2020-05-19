@@ -1,0 +1,32 @@
+@import '../../variables';
+
+.profile-container {
+    height: calc(100vh - 150px);
+	background-color: white;
+	display: flex;
+	align-items: center;
+    justify-content: center;
+    
+    .profile-text {
+        height: 550px;
+        width: 545px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: rgb(42, 113, 128);
+        border: 1px solid black;
+        font-family: $primary-font-family;
+    }
+
+    .logout-button {
+        @include button;
+    }
+
+    .edit-button {
+        @include button;
+    }
+}
+
+
+
