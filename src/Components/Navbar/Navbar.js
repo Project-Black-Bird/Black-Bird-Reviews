@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './Navbar.scss';
 
-import { connect } from 'react-redux';
-import AuthModal from '../Modal/AuthModal';
+// import { connect } from 'react-redux';
+// import AuthModal from '../Modal/AuthModal';
 
 class Navbar extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			dropdownView: false,
-			showModal: false,
+			// showModal: false,
 		};
 	}
 
 	handletoggle = () => {
 		this.setState({ dropdownView: !this.state.dropdownView });
-		this.setState({ showModal: !this.state.showModal });
+		// this.setState({ showModal: !this.state.showModal });
 	};
 
 	render() {
@@ -41,14 +41,24 @@ class Navbar extends Component {
         ) : null} */}
 				<nav className="desktop-links">
 					<span>
-						<Link to="/login" className="nav-links">
+						<Link
+							to="/login"
+							className="nav-links"
+							onClick={() => this.handleToggle}
+						>
 							Login/Register
 						</Link>
 					</span>
 				</nav>
+				{/* {this.state.showModal ? (
+					<AuthModal toggleFn={this.handleToggle} />
+				) : null} */}
 			</div>
 		);
 	}
 }
 
 export default withRouter(Navbar);
+// const mapStateToProps = reduxState => reduxState;
+
+// export default connect(mapStateToProps)(Navbar);
