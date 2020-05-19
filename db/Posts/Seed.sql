@@ -3,8 +3,5 @@ CREATE TABLE IF NOT EXISTS posts (
   user_id INT REFERENCES users(user_id),
   image TEXT,
   review VARCHAR (500),
-<<<<<<< HEAD
-=======
   title CHECK(LENGTH(title)<300)
->>>>>>> master
 );
