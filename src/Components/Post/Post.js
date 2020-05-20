@@ -1,13 +1,20 @@
 import React from "react";
 import PropTypes, { func } from "prop-types";
 import { connect } from "react-redux";
+import "./Post.scss";
 function Post(props) {
   return (
     <div className="Post-container">
       {/* the alt attribute will need to be replaced later */}
       <img src={props.image} alt="a post image" />
       <span className="title">{props.title}</span>
-      <span className="review">{props.review}</span>
+      <span className="review">
+        {props.review}
+        {props.review.length > 125 ? (
+          <div className="see-more">... See More</div>
+        ) : null}
+      </span>
+
       <div className="actions">
         {props.user.email && props.user.id ? (
           <div className="edit-delete">

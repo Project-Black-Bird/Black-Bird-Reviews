@@ -15,12 +15,15 @@ class Posts extends React.Component {
   }
   renderPosts() {
     return this.state.posts.map((post) => {
-      <Post
-        title="Example Post"
-        review="Blank review"
-        likes={0}
-        {...this.props.user}
-      />;
+      return (
+        <Post
+          image={post.image}
+          title={post.title}
+          review={post.review}
+          likes={post.likes}
+          {...this.props.user}
+        />
+      );
     });
   }
   componentDidMount() {
