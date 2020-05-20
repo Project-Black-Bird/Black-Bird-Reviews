@@ -21,7 +21,7 @@ class Login extends Component {
 
 	componentDidMount() {
 		if (this.props.user.email) {
-			this.props.history.push('/');
+			this.props.history.push('/profile');
 		}
 	}
 

@@ -19,14 +19,28 @@
         font-family: $primary-font-family;
     }
 
+    .profile-picture {
+        height: 175px;
+        width: 175px;
+        border-radius: 50%;
+    }
+
     .logout-button {
         @include button;
+        width: 150px;
     }
 
     .edit-button {
         @include button;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-left: 17px;
     }
 }
+
+
 
 
 

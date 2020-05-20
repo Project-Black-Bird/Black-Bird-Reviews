@@ -6,7 +6,7 @@ import Posts from "./Components/Posts/Posts";
 export default (
   <Switch>
     <Route exact path="/" component={Posts} />
-    <Route path="/login" component={Login} />
+    <Route path="/login" component={Profile, Login} />
     <Route path="/profile" component={Profile} />
   </Switch>
 );

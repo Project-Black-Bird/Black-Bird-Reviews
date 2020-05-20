@@ -13,8 +13,8 @@ class Navbar extends Component {
 			dropdownView: false,
 			// showModal: false,
 		};
-	}
-
+    }
+    
 	handletoggle = () => {
 		this.setState({ dropdownView: !this.state.dropdownView });
 		// this.setState({ showModal: !this.state.showModal });
@@ -52,12 +52,12 @@ class Navbar extends Component {
 						>
 							Log In/Register
 						</Link>
-                        <Link
+                        {/* <Link
 							to="/profile"
 							className="nav-links"
 							onClick={() => this.handleToggle}>
 							Profile
-						</Link>
+						</Link> */}
 					</h1>
 				</nav>
 				{/* {this.state.showModal ? (
