@@ -59,17 +59,38 @@ class Profile extends Component {
             Log Out
           </button>
           <h1>Account Details</h1>
-          <img
+          {!this.state.editView ? (
+            <h2>
+                 <img
             className="profile-picture"
             src={this.props.user.image}
             alt={this.props.user.name}
-          />
+          />{" "}
+              <button className="edit-button" onClick={this.handleEditView}>
+                Edit Image
+              </button>
+            </h2>
+          ) : (
+            <div>
+              <input
+                value={this.state.email}
+                placeholder="New Image"
+                onChange={(e) => this.handleInput(e.target.value)}
+              />
+            </div>
+          )}
+          
+          {/* <img
+            className="profile-picture"
+            src={this.props.user.image}
+            alt={this.props.user.name}
+          /> */}
           <h2>{this.props.user.name}</h2>
           {!this.state.editView ? (
             <h2>
               {this.props.user.email}{" "}
               <button className="edit-button" onClick={this.handleEditView}>
-                Edit
+                Edit Email
               </button>
             </h2>
           ) : (

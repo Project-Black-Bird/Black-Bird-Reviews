@@ -42,9 +42,6 @@ class Navbar extends Component {
         ) : null} */}
         <nav className="desktop-links">
           <h1>
-            {/* <Link to="/" className="nav-logo">
-						Blackbird Reviews
-					</Link> */}
             <Link
               to="/login"
               className="nav-links"
