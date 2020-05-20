@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Post from "../Post/Post";
 import "./Posts.css";
 import posts from "./POSTS_MOCK.json";
+import CreatePost from "../Post/CreatePost/CreatePost";
 class Posts extends React.Component {
   state = {
     posts: [],
@@ -34,7 +35,12 @@ class Posts extends React.Component {
     this.getAllPosts();
   }
   render() {
-    return <div className="Posts-container">{this.renderPosts()}</div>;
+    return (
+      <div className="Posts-container">
+        <CreatePost />
+        <div className="posts">{this.renderPosts()}</div>
+      </div>
+    );
   }
 }
 function mapStateToProps(state) {
