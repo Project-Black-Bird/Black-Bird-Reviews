@@ -15,7 +15,7 @@ class Posts extends React.Component {
   }
   renderPosts() {
     return this.state.posts.map((post) => {
-      let { user } = this.props;
+      let user = { ...(this.props.user || {}) };
       user = user || {};
       user.id = user.id || 0;
       user.email = user.email || "blackbirdreviews@yahoo.com";
