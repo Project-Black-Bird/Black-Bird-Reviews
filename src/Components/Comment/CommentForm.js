@@ -2,53 +2,37 @@ import React, { Component } from 'react';
 import './CommentForm.scss';
 
 class CommentForm extends Component {
-	state = {
-		body: '',
-		errors: {},
-	};
+	// state = {
+	// 	body: '',
+	// };
 
-	// componentWillReceiveProps(nextProps) {
-	// 	if (nextProps.UI.errors) {
-	// 		this.setState({ errors: nextProps.UI.errors });
-	// 	}
-	// 	if (!nextProps.UI.errors && !nextProps.UI.loading) {
-	// 		this.setState({ body: '' });
-	// 	}
-	// }
+	// handleChange = event => {
 
-	handleChange = event => {
-		this.setState({ [event.target.name]: event.target.value });
-	};
-	handleSubmit = event => {
-		event.preventDefault();
-		this.props.submitComment(this.props.screamId, { body: this.state.body });
-	};
+	// };
+	// handleSubmit = event => {
+
+	// };
 
 	render() {
-		const { classes, authenticated } = this.props;
-		const errors = this.state.errors;
 		return (
-			// const commentFormMarkup = authenticated ? (
 			<div>
 				<form onSubmit={this.handleSubmit}>
+					<h4>Write your comment</h4>
 					<textarea
-						name="body"
 						type="text"
-						label="Comment on scream"
-						error={errors.comment ? true : false}
-						helperText={errors.comment}
-						// value={this.state.body}
-						onChange={this.handleChange}
-
-						// className={classes.textarea}
+						label="Comment"
+						// onChange={this.handleChange}
+						className="textArea"
+						placeholder="Type your comment here.."
 					/>
-					<button type="submit">Submit</button>
+					<div>
+						<button className="form-btn" type="submit">
+							Submit
+						</button>
+					</div>
 				</form>
-				{/* <hr className={classes.visibleSeparator} /> */}
 			</div>
 		);
-		// ) : null;
-		// return commentFormMarkup;
 	}
 }
 
