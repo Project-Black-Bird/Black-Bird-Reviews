@@ -13,8 +13,8 @@ class Navbar extends Component {
 			dropdownView: false,
 			// showModal: false,
 		};
-	}
-
+    }
+    
 	handletoggle = () => {
 		this.setState({ dropdownView: !this.state.dropdownView });
 		// this.setState({ showModal: !this.state.showModal });
