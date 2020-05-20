@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import CommentForm from "../Comment/CommentForm";
 import "./Post.scss";
 function Post(props) {
+  console.log("POST user", props.user);
   return (
     <div className="Post-container">
       {/* the alt attribute will need to be replaced later */}
@@ -30,8 +31,7 @@ function Post(props) {
           Share
         </button>
       </div>
-      {/* {props.user.id && props.user.email ? <CommentForm /> : null} */}
-      <CommentForm />
+      {props.user.user_id && props.user.email ? <CommentForm /> : null}
     </div>
   );
 }
