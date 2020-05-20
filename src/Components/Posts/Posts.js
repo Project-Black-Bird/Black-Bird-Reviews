@@ -10,9 +10,25 @@ class Posts extends React.Component {
   };
   constructor(props) {
     super(props);
+    this.updatePost = this.updatePost.bind(this);
   }
   getAllPosts() {
     this.setState({ posts: posts });
+  }
+  updatePost(post_id, title, image, review) {
+    // this could be something like optimistic update
+    this.setState({
+      ...this.state,
+      posts: this.state.posts.map((post) => {
+        if (post.post_id == post_id) {
+          console.log("found post, updating...");
+          post.title = title;
+          post.image = image;
+          post.review = review;
+        }
+        return post;
+      }),
+    });
   }
   renderPosts() {
     return this.state.posts.map((post) => {
@@ -22,11 +38,13 @@ class Posts extends React.Component {
       // user.email = user.email || "blackbirdreviews@yahoo.com";
       return (
         <Post
+          post_id={post.post_id}
           image={post.image}
           title={post.title}
           review={post.review}
           likes={post.likes}
           user={this.props.user}
+          updatePost={this.updatePost}
         />
       );
     });
