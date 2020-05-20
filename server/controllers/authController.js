@@ -66,5 +66,13 @@ module.exports = {
     logout: async(req,res)=>{
         req.session.destroy();
         res.sendStatus(200);
+    },
+    editUser: (req,res) =>{
+        const {email} = req.body,
+              {id} = req.params,
+              db = req.app.get('db');
+        db.users.edit_user(id,email)
+            .then(()=> res.sendStatus(200))
+            .catch(err=> res.status(500).send(err)); 
     }
 }

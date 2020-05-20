@@ -1,6 +1,7 @@
 const routes = require("express").Router();
 const auth = require("./controllers/authController");
 const posts = require("./controllers/postController");
+const comments = require("./controllers/commController");
 
 const notImplemented = (req, res) => {
   res.status(501).json({});
@@ -36,6 +37,7 @@ const notImplemented = (req, res) => {
 routes.post("/auth/login", auth.login);
 routes.post("/auth/register", auth.register);
 routes.post("/auth/logout", auth.logout);
+routes.put("/auth/user/:id", auth.editUser);
 
 routes.get("/", function helloApi(req, res) {
   res.send("hello from api");
@@ -51,6 +53,13 @@ routes.put("/posts/:id", posts.editPost);
 routes.post("/post", posts.createPost);
 // delete a post by id
 routes.delete("/post/:id", posts.deletePost);
+
+/* comment endpoints */ 
+routes.post('/api/comments', comments.createComment);
+routes.get('/api/post/comments/:id', comments.getPostComments);
+routes.put('/api/comments/:id', comments.editUserComment);
+routes.get('/api/comments/:id', comments.getUserComments);
+routes.delete('/api/comments/:id', comments.deleteUserComment);
 
 // index.js expects object routes as the default export
 module.exports = routes;
