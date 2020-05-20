@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes, { func } from "prop-types";
 import { connect } from "react-redux";
+import CommentForm from "../Comment/CommentForm";
 import "./Post.scss";
 function Post(props) {
   return (
@@ -29,6 +30,8 @@ function Post(props) {
           Share
         </button>
       </div>
+      {/* {props.user.id && props.user.email ? <CommentForm /> : null} */}
+      <CommentForm />
     </div>
   );
 }
