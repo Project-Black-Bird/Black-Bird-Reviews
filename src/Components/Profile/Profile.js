@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./Profile.scss";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -7,28 +7,28 @@ import { logoutUser } from "../../redux/reducer";
 import { withRouter } from "react-router-dom";
 
 class Profile extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            email: '',
-            editView: false
+            username: "",
+            email: "",
+            editView: false,
+        };
+    }
+
+    componentDidMount() {
+        if (!this.props.user.email) {
+        this.props.history.push("/profile");
         }
     }
 
-    // componentDidMount(){
-    //     if(!this.props.user.email){
-    //         this.props.history.push('/')
-    //     }
-    // }
+    handleEditView = () => {
+        this.setState({ editView: !this.state.editView });
+    };
 
     handleInput = (val) => {
-        this.setState({email: val})
-    }
-
-    handleEditView = () => {
-        this.setState({editView: !this.state.editView})
-    }
+    this.setState({ email: val });
+    };
 
     handleLogout = () => {
         axios.post('/api/auth/logout')
@@ -50,29 +50,45 @@ class Profile extends Component {
         .catch(err => console.log(err));
     }
 
-    render() {
-        return (
-            <div className='profile-container'>
-                <span className='profile-text'>
-                    <h1>My Profile</h1>
-                    <button className='logout-button' onClick={this.handleLogout}>Log Out</button>
-                    <h1>Account Details</h1>
-                    <h3>{this.props.user.username}</h3>
-                    {!this.state.editView
-                    ?<h2>{this.props.user.email} <button className='edit-button' onClick={this.handleEditView}>Edit</button></h2>
-                    : (<div>
-                        <input
-                        value={this.state.email}
-                        placeholder='New Email'
-                        onChange={(e) => this.handleInput(e.target.value)}/>
-                    </div>)}
-                </span>
-                
+  render() {
+    return (
+      <div className="profile-container">
+        <span className="profile-text">
+          <h1>My Profile</h1>
+          <button className="logout-button" onClick={this.handleLogout}>
+            Log Out
+          </button>
+          <h1>Account Details</h1>
+          <img
+            className="profile-picture"
+            src={this.props.user.image}
+            alt={this.props.user.name}
+          />
+          <h2>{this.props.user.name}</h2>
+          {!this.state.editView ? (
+            <h2>
+              {this.props.user.email}{" "}
+              <button className="edit-button" onClick={this.handleEditView}>
+                Edit
+              </button>
+            </h2>
+          ) : (
+            <div>
+              <input
+                value={this.state.email}
+                placeholder="New Email"
+                onChange={(e) => this.handleInput(e.target.value)}
+              />
             </div>
-        )
-    }
+          )}
+        </span>
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = reduxState => reduxState;
+const mapStateToProps = (reduxState) => reduxState;
 
-export default withRouter(connect(mapStateToProps, {getUser, logoutUser})(Profile));
+export default withRouter(
+  connect(mapStateToProps, { getUser, logoutUser })(Profile)
+);
