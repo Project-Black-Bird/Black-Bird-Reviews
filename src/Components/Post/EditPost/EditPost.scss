@@ -1,0 +1,18 @@
+.EditPost-container {
+  display: contents;
+  .img-group {
+    grid-area: img;
+  }
+  input[name="title"] {
+    grid-area: title;
+  }
+  textarea[name="review"] {
+    grid-area: review;
+    width: 100%;
+    height: 100%;
+    resize: none;
+  }
+  button[type="submit"] {
+    grid-area: actions;
+  }
+}
