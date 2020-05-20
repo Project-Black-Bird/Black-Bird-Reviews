@@ -31,7 +31,7 @@ class Profile extends Component {
     }
 
     handleLogout = () => {
-        axios.post('auth/logout')
+        axios.post('/api/auth/logout')
         .then(() => {
             this.props.logoutUser();
             this.props.history.push('/')
