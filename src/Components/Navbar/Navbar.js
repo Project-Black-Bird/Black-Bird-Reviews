@@ -50,25 +50,9 @@ class Navbar extends Component {
               className="nav-links"
               onClick={() => this.handleToggle}
             >
-              {/* Log In/Register */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 48 48"
-              >
-                <title>ic_person_outline_48px</title>
-                <g fill="#ffffff">
-                  <path d="M24 11.8c2.32 0 4.2 1.88 4.2 4.2s-1.88 4.2-4.2 4.2-4.2-1.88-4.2-4.2 1.88-4.2 4.2-4.2m0 18c5.95 0 12.2 2.91 12.2 4.2v2.2H11.8V34c0-1.29 6.25-4.2 12.2-4.2M24 8c-4.42 0-8 3.58-8 8 0 4.41 3.58 8 8 8s8-3.59 8-8c0-4.42-3.58-8-8-8zm0 18c-5.33 0-16 2.67-16 8v6h32v-6c0-5.33-10.67-8-16-8z"></path>
-                </g>
-              </svg>
+              Log In/Register
+              <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42"><title>ic_person_outline_48px</title><g fill="#ffffff"><path d="M21.06 10.35a3.69 3.69 0 1 1 0 7.38 3.69 3.69 0 0 1 0-7.38m0 15.8c5.22 0 10.71 2.55 10.71 3.68v1.94h-21.42v-1.93c0-1.13 5.49-3.69 10.71-3.69m0-19.13c-3.87 0-7.02 3.15-7.02 7.02s3.15 7.02 7.02 7.02 7.02-3.15 7.02-7.02-3.15-7.02-7.02-7.02z m0 15.8c-4.68 0-14.04 2.34-14.04 7.02v5.26h28.08v-5.26c0-4.68-9.36-7.02-14.04-7.02z"></path></g></svg>
             </Link>
-            {/* <Link
-							to="/profile"
-							className="nav-links"
-							onClick={() => this.handleToggle}>
-							Profile
-						</Link> */}
           </h1>
         </nav>
         {/* {this.state.showModal ? (
