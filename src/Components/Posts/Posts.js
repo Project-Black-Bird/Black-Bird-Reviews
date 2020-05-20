@@ -25,8 +25,7 @@ class Posts extends React.Component {
           title={post.title}
           review={post.review}
           likes={post.likes}
-          {...this.props.user}
-          user={user}
+          user={{ ...this.props.user, ...user }}
         />
       );
     });
