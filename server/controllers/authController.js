@@ -35,7 +35,7 @@ module.exports = {
             to: email,
             subject: 'Thank You for Registering!',
             text: 'Welcome to Black Bird Reviews, Thank you for signing up with us. We hope to hear your thoughts on products you want to review soon!'
-        }),(err, success) =>{
+        },(err, success) =>{
             if(err){
                 console.log(err);
                 res.status(500).send(`An Error has occured: ${err}`);
@@ -44,7 +44,7 @@ module.exports = {
                 console.log(success)
                 res.status(201).send(req.session.user);
             }
-        }
+        })
     },
     login: async(req,res) =>{
         const {email, password} = req.body,
