@@ -15,6 +15,10 @@ class Posts extends React.Component {
   }
   renderPosts() {
     return this.state.posts.map((post) => {
+      let { user } = this.props;
+      user = user || {};
+      user.id = user.id || 0;
+      user.email = user.email || "blackbirdreviews@yahoo.com";
       return (
         <Post
           image={post.image}
@@ -22,6 +26,7 @@ class Posts extends React.Component {
           review={post.review}
           likes={post.likes}
           {...this.props.user}
+          user={user}
         />
       );
     });
@@ -33,4 +38,9 @@ class Posts extends React.Component {
     return <div className="Posts-container">{this.renderPosts()}</div>;
   }
 }
-export default Posts;
+function mapStateToProps(state) {
+  let { user } = state;
+  return { user };
+}
+const mapDispatchToProps = {};
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
