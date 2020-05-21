@@ -3,6 +3,9 @@ import Axios from "axios";
 
 import "./Comments.scss";
 import commentsMock from "./COMMENTS_MOCK.json";
+
+import Comment from "../Comment/Comment";
+
 class Comments extends React.Component {
   state = {
     comments: [],
@@ -12,7 +15,7 @@ class Comments extends React.Component {
   }
   renderComments(arr) {
     return arr.map((comment) => {
-      return <div>{comment.text}</div>;
+      return <Comment text={comment.text} username={comment.username} />;
     });
   }
   componentDidMount() {
