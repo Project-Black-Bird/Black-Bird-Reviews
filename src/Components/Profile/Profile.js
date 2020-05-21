@@ -43,7 +43,7 @@ class Profile extends Component {
   updateUseremail = () => {
     const { email } = this.state;
     axios
-      .put(`/api/auth/user/${this.props.user.user_id}`, { email })
+      .put(`/api/auth/user/${this.props.user.user_id}`, { email }, {withCredentials:true})
       .then((res) => {
         this.props.getUser(res.data[0]);
         this.handleEditView();
