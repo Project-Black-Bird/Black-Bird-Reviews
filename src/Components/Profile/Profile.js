@@ -61,6 +61,8 @@ class Profile extends Component {
       <div className="profile-container">
         <span className="profile-text">
           <h1>My Profile</h1>
+          <h2>{this.props.user.name}</h2>
+          <h2>{this.props.user.email}</h2>
           {this.state.editView ? (
             <div>
               <input
@@ -113,8 +115,6 @@ class Profile extends Component {
               </div>
             </div>
           )}
-
-
 
           <button className="logout-button" onClick={this.handleLogout}>
             Log Out

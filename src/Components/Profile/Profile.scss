@@ -28,62 +28,22 @@
   .logout-button {
     @include button;
     width: 150px;
+    margin-top: 10px;
+  }
+  
+  .edit-buttons {
+    display: flex;
   }
 
   .edit-button {
     @include button;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 100px;
+    // height: 50px;
+    // border-radius: 50%;
     display: flex;
     justify-content: center;
-<<<<<<< HEAD
-    
-    .profile-text {
-        height: 550px;
-        width: 545px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: rgb(42, 113, 128);
-        // border: 1px solid black;
-        font-family: $primary-font-family;
-    }
-
-    .profile-picture {
-        height: 175px;
-        width: 175px;
-        border-radius: 50%;
-    }
-
-    .logout-button {
-        @include button;
-        width: 150px;
-    }
-}
-
-.flex-button {
-    display: flex;
-    
-}
-
-.edit-button {
-    @include button;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-=======
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
   }
-  .edit-buttons {
-    display: flex;
-  }
->>>>>>> master
 }
