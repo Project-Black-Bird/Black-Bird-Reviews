@@ -9,14 +9,25 @@ import Comment from "../Comment/Comment";
 class Comments extends React.Component {
   state = {
     comments: [],
+    limit: 2,
   };
   constructor(props) {
     super(props);
   }
   renderComments(arr) {
-    return arr.map((comment) => {
-      return <Comment text={comment.text} username={comment.username} />;
-    });
+    let renderedComments = [];
+    for (
+      let commentIndex = 0;
+      commentIndex <
+      (this.state.limit < arr.length ? this.state.limit : arr.length);
+      commentIndex++
+    ) {
+      let comment = arr[commentIndex];
+      renderedComments.push(
+        <Comment text={comment.text} username={comment.username} />
+      );
+    }
+    return renderedComments;
   }
   componentDidMount() {
     this.setState({

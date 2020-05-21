@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import "./Comment.scss";
 function Comment(props) {
   return (
     <div className="Comment-container">
