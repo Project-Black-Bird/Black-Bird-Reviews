@@ -68,10 +68,10 @@ module.exports = {
         res.sendStatus(200);
     },
     editUser: (req,res) =>{
-        const {email} = req.body,
+        const {email, image} = req.body,
               {id} = req.params,
               db = req.app.get('db');
-        db.users.edit_user(email,id)
+        db.users.edit_user(email,image,id)
             .then((user)=> {
                 // console.log(user);
                 req.session.user = user[0];
