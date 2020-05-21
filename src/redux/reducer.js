@@ -1,9 +1,11 @@
 const initialState = {
 	user: {},
+	posts: [],
 };
 
 const GET_USER = 'GET_USER';
 const LOGOUT_USER = 'LOGOUT_USER';
+const GET_POSTS = 'GET_POSTS';
 
 //action that will take the user object received from the database and will place it in redux state, making it available for all components to use.
 export function getUser(userObj) {
@@ -21,6 +23,14 @@ export function logoutUser() {
 	};
 }
 
+//action that will take the post object received from the database and will place it in redux state, making it available for all components to use.
+export function getPosts(posts) {
+	return {
+		type: GET_POSTS,
+		payload: posts,
+	};
+}
+
 export default function reducer(state = initialState, action) {
 	const { type, payload } = action;
 	switch (type) {
@@ -28,6 +38,8 @@ export default function reducer(state = initialState, action) {
 			return { ...state, user: payload };
 		case LOGOUT_USER:
 			return { ...state, user: payload };
+		case GET_POSTS:
+			return { ...state, posts: payload };
 		default:
 			return state;
 	}
