@@ -10,8 +10,9 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      email: "",
+      username: this.props.user.name,
+      email: this.props.user.email,
+      image: this.props.user.image,
       editView: false,
     };
   }
@@ -26,8 +27,8 @@ class Profile extends Component {
     this.setState({ editView: !this.state.editView });
   };
 
-  handleInput = (val) => {
-    this.setState({ email: val });
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   handleLogout = () => {
@@ -40,18 +41,15 @@ class Profile extends Component {
       .catch((err) => console.log(err));
   };
 
-  updateUseremail = () => {
-    const { email } = this.state;
+  updateUser = () => {
+    const { image, email } = this.state;
+    console.log(email);
     axios
-      .put(
-        `/api/auth/user/${this.props.user.user_id}`,
-        { email },
-        { withCredentials: true }
-      )
+      .put(`/api/auth/user/${this.props.user.user_id}`, {email, image})
       .then((res) => {
-        this.props.getUser(res.data[0]);
+        this.props.getUser(res.data || {});
         this.handleEditView();
-        this.setState({ email: "" });
+        this.setState({ email: email , image: image });
       })
       .catch((err) => console.log(err));
   };
@@ -67,15 +65,15 @@ class Profile extends Component {
             <div>
               <input
                 value={this.state.image}
-                placeholder="New Image"
-                onChange={(e) => this.handleInput(e.target.value)}
+                name='image'
+                onChange={(e) => this.handleInput(e)}
               />
               <input
                 value={this.state.email}
-                placeholder="New Email"
-                onChange={(e) => this.handleInput(e.target.value)}
+                name='email'
+                onChange={(e) => this.handleInput(e)}
               />
-              <button className="submit-button" onClick={this.updateUseremail}>
+              <button className="submit-button" onClick={this.updateUser}>
                 Submit
               </button>
             </div>
