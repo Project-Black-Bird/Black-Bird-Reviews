@@ -1,3 +1,4 @@
 UPDATE users
-SET email = $2,
-where user_id = $1;
+SET email = $1
+WHERE user_id = $2
+returning user_id, name, email, image;

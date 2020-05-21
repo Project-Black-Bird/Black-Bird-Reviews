@@ -42,10 +42,11 @@ class Profile extends Component {
 
   updateUseremail = () => {
     const { email } = this.state;
+    console.log(email);
     axios
-      .put(`/api/auth/user/${this.props.user.user_id}`, { email }, {withCredentials:true})
+      .put(`/api/auth/user/${this.props.user.user_id}`, {email})
       .then((res) => {
-        this.props.getUser(res.data[0]);
+        this.props.getUser(res.data || {});
         this.handleEditView();
         this.setState({ email: "" });
       })
@@ -91,7 +92,7 @@ class Profile extends Component {
           )}
           {!this.state.editView ? (
             <h2>
-              {/* {this.props.user.email}{" "} */}
+              {this.props.user.email}{" "}
               <button className="edit-button" onClick={this.handleEditView}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

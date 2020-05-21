@@ -17,16 +17,18 @@ class CreatePost extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
+    const {title, image, review} = this.state;
+    axios.post('/api/post')
   }
   render() {
     return (
       <div className="CreatePost-container">
         <h4>Create a review</h4>
         <form onSubmit={this.handleSubmit}>
-          <input name="title" placeholder="Name of the product" />
-          <input name="image" placeholder="Image Link" />
-          <textarea name="review" placeholder="Review" />
-          <button type="submit">Submit</button>
+          <input onChange={(e) => this.handleInput(e)} name="title" placeholder="Name of the product" />
+          <input onChange={(e) => this.handleInput(e)} name="image" placeholder="Image Link" />
+          <textarea onChange={(e) => this.handleInput(e)} name="review" placeholder="Review" />
+          <button onClick={(e)=>this.handleSubmit(e)} type="submit">Submit</button>
         </form>
       </div>
     );

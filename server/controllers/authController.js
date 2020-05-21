@@ -71,8 +71,16 @@ module.exports = {
         const {email} = req.body,
               {id} = req.params,
               db = req.app.get('db');
-        db.users.edit_user(id,email)
-            .then(()=> res.sendStatus(200))
-            .catch(err=> res.status(500).send(err)); 
+        db.users.edit_user(email,id)
+            .then((user)=> {
+                // console.log(user);
+                req.session.user = user[0];
+                res.status(200).send(req.session.user);
+            })
+            .catch(err=> 
+                {
+                    res.status(500).send(err)
+                    console.log(err);
+                }); 
     }
 }
