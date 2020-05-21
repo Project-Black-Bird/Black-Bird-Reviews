@@ -37,6 +37,7 @@ $actions-height: $line-height * 1.25;
   }
   .title {
     font-size: $line-height;
+    height: 100%;
     grid-area: title;
     font-weight: bold;
   }
