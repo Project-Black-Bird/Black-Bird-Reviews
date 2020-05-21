@@ -7,6 +7,7 @@ $actions-height: $line-height * 1.25;
 
 .Post-container {
   border: 1px solid black;
+  background-color: #d4e2e5;
   border-radius: 32px;
   margin-left: auto;
   margin-right: auto;
@@ -25,7 +26,8 @@ $actions-height: $line-height * 1.25;
     "title"
     "review"
     "actions"
-    "commentForm";
+    "commentForm"
+    "comments";
   display: grid;
   img {
     grid-area: img;
@@ -70,12 +72,13 @@ $actions-height: $line-height * 1.25;
     column-gap: 1em;
     line-height: $line-height;
     grid-template-columns: minmax(3em, 1fr) 3fr;
-    grid-template-rows: $title-row-height $review-height $actions-height 1fr;
+    grid-template-rows: $title-row-height $review-height $actions-height auto auto;
     grid-template-areas:
       "img title"
       "img review"
       "img actions"
-      "commentForm commentForm";
+      "commentForm commentForm"
+      "comments comments";
     img {
       max-width: 100%;
       max-height: $title-row-height + $review-height + $actions-height;

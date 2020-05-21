@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import CommentForm from "../Comment/CommentForm";
 import EditPost from "../Post/EditPost/EditPost";
 import "./Post.scss";
+import Comments from "../Comments/Comments";
 class Post extends React.Component {
   state = {
     edit: false,
@@ -65,6 +66,7 @@ class Post extends React.Component {
         {this.props.user.user_id && this.props.user.email ? (
           <CommentForm />
         ) : null}
+        <Comments />
       </div>
     );
   }
