@@ -73,6 +73,7 @@ module.exports = {
               db = req.app.get('db');
         db.users.edit_user(id,email)
             .then(()=> res.sendStatus(200))
+            // .then(user => res.status(200).send(user)) J
             .catch(err=> res.status(500).send(err)); 
     }
 }
