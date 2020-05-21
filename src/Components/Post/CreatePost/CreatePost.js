@@ -17,8 +17,13 @@ class CreatePost extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    const {title, image, review} = this.state;
-    axios.post('/api/post')
+    const {title, image, review} = this.state,
+          {user_id} = this.props.user;
+    axios.post('/api/post', {user_id, title, image, review})
+         .then(()=>{
+           // Get posts
+           
+         })
   }
   render() {
     return (
@@ -34,4 +39,9 @@ class CreatePost extends React.Component {
     );
   }
 }
-export default CreatePost;
+
+const mapStateToProps = (reduxState) => reduxState;
+
+export default withRouter(
+  connect(mapStateToProps, { getPosts })(CreatePost)
+);
