@@ -42,7 +42,9 @@ class Profile extends Component {
 
   updateUseremail = () => {
     const { email } = this.state;
-    axios.put(`/api/auth/user/${this.props.user.user_id}`,
+    axios
+      .put(
+        `/api/auth/user/${this.props.user.user_id}`,
         { email },
         { withCredentials: true }
       )
@@ -60,33 +62,33 @@ class Profile extends Component {
         <span className="profile-text">
           <h1>My Profile</h1>
           <h2>{this.props.user.name}</h2>
+
+
+          
           {!this.state.editView ? (
-            <h2>
+            <>
               <img
                 className="profile-picture"
                 src={this.props.user.image}
                 alt={this.props.user.name}
               />
-              <div className="edit-buttons">
-                <button
-                  className="edit-image-button"
-                  onClick={this.handleEditView}
-                >
-                  <svg
+
+              <button className="edit-button" onClick={this.handleEditView}>
+                image
+                {/* <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
-                  >
+                    >
                     <title>ic_photo_camera_24px</title>
                     <g fill="#ffffff">
-                      <circle cx="12" cy="12" r="3.2"></circle>
-                      <path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"></path>
+                    <circle cx="12" cy="12" r="3.2"></circle>
+                    <path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"></path>
                     </g>
-                  </svg>
-                </button>
-              </div>
-            </h2>
+                </svg> */}
+              </button>
+            </>
           ) : (
             <div>
               <input
@@ -97,27 +99,24 @@ class Profile extends Component {
             </div>
           )}
           {!this.state.editView ? (
-            <h2>
+            <>
               {/* {this.props.user.email}{" "} */}
-              <div className="edit-buttons">
-                <button
-                  className="edit-email-button"
-                  onClick={this.handleEditView}
-                >
-                  <svg
+
+              <button className="edit-button" onClick={this.handleEditView}>
+                email
+                {/* <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
-                  >
+                    >
                     <title>ic_markunread_24px</title>
                     <g fill="#ffffff">
-                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
                     </g>
-                  </svg>
-                </button>
-              </div>
-            </h2>
+                </svg> */}
+              </button>
+            </>
           ) : (
             <div>
               <input
@@ -130,6 +129,9 @@ class Profile extends Component {
               </button>
             </div>
           )}
+
+
+
           <button className="logout-button" onClick={this.handleLogout}>
             Log Out
           </button>
@@ -142,4 +144,5 @@ class Profile extends Component {
 const mapStateToProps = (reduxState) => reduxState;
 
 export default withRouter(
-  connect(mapStateToProps, { getUser, logoutUser })(Profile));
+  connect(mapStateToProps, { getUser, logoutUser })(Profile)
+);
