@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
@@ -49,14 +49,30 @@ class CreatePost extends React.Component {
     // console.log(this.props.user);
     return (
       <div className="CreatePost-container">
-        <h4>Create a review</h4>
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={(e) => this.handleInput(e)} name="title" placeholder="Name of the product" />
-          <input onChange={(e) => this.handleInput(e)} name="image" placeholder="Image Link" />
-          <textarea onChange={(e) => this.handleInput(e)} name="review" placeholder="Review" />
-          <button onClick={(e)=>this.handleSubmit(e)} type="submit">Submit</button>
-        </form>
-      </div>
+      <h4>Create a review</h4>
+      <form onSubmit={this.handleSubmit}>
+        <input
+          onChange={e => this.handleInput(e)}
+          name="title"
+          placeholder="Name of the product"
+        />
+        <input
+          onChange={e => this.handleInput(e)}
+          name="image"
+          placeholder="Image Link"
+        />
+        <textarea
+          onChange={e => this.handleInput(e)}
+          name="review"
+          placeholder="Review"
+        />
+        <div>
+          <button onClick={e => this.handleSubmit(e)} type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
     );
   }
 }
