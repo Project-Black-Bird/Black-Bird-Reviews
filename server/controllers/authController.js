@@ -71,12 +71,6 @@ module.exports = {
         const {email, image} = req.body,
               {id} = req.params,
               db = req.app.get('db');
-<<<<<<< HEAD
-        db.users.edit_user(id,email)
-            .then(()=> res.sendStatus(200))
-            // .then(user => res.status(200).send(user)) J
-            .catch(err=> res.status(500).send(err)); 
-=======
         db.users.edit_user(email,image,id)
             .then((user)=> {
                 // console.log(user);
@@ -88,6 +82,5 @@ module.exports = {
                     res.status(500).send(err)
                     console.log(err);
                 }); 
->>>>>>> master
     }
 }

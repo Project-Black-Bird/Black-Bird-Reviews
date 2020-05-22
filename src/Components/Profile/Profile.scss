@@ -1,44 +1,62 @@
 @import "../../variables";
 
 .profile-container {
+//   position: relative;  
   height: calc(100vh - 150px);
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  .user-name {
+      width: 361px;
+    //   height: 84px;
+      right: 758px;
+      top: 332px;
+      font-size: 36px;
+      font-family: $primary-font-family;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      height: calc(280px);
+  }
+
   .profile-text {
-    height: 550px;
-    width: 545px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: rgb(42, 113, 128);
+    // height: 550px;
+    // width: 545px;
+    // box-sizing: border-box;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // color: rgb(42, 113, 128);
     // border: 1px solid black;
-    font-family: $primary-font-family;
+    // font-family: $primary-font-family;
   }
 
   .profile-picture {
-    height: 175px;
-    width: 175px;
+    // position: fixed;
+    height: 257px;
+    width: 257px;
+    top: 234px;
+    left: 421px;
     border-radius: 50%;
   }
 
   .logout-button {
     @include button;
-    width: 150px;
-    margin-top: 10px;
+    width: 100px;
+    margin-top: 90px;
   }
   
   .edit-buttons {
     display: flex;
+    position: relative;
   }
 
   .edit-button {
     @include button;
-    width: 100px;
-    // height: 50px;
+    width: 65px;
+    // height: 65px;
     // border-radius: 50%;
     display: flex;
     justify-content: center;

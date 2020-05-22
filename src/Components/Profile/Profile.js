@@ -57,10 +57,10 @@ class Profile extends Component {
   render() {
     return (
       <div className="profile-container">
+       
+          
         <span className="profile-text">
-          <h1>My Profile</h1>
-          <h2>{this.props.user.name}</h2>
-          <h2>{this.props.user.email}</h2>
+          {/* <h1>My Profile</h1> */}
           {this.state.editView ? (
             <div>
               <input
@@ -110,6 +110,9 @@ class Profile extends Component {
                     </g>
                   </svg>
                 </button>
+                {/* <button className="logout-button" onClick={this.handleLogout}>
+            Log Out
+          </button> */}
               </div>
             </div>
           )}
@@ -118,6 +121,14 @@ class Profile extends Component {
             Log Out
           </button>
         </span>
+        <span className='user-name'>
+            <h2>{this.props.user.name}</h2>
+            {/* <h2>{this.props.user.email}</h2> */}
+            {/* <button className="logout-button" onClick={this.handleLogout}>
+            Log Out
+          </button> */}
+          </span>
+        
       </div>
     );
   }
