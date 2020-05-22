@@ -61,7 +61,7 @@ class Profile extends Component {
           {/* <h1>My Profile</h1> */}
           {this.state.editView ? (
             <div className="edit-fields-container">
-              <input
+              <input className="image-field"
                 value={this.state.image}
                 name="image"
                 onChange={(e) => this.handleInput(e)}

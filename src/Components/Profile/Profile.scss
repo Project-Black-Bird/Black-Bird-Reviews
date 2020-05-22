@@ -27,6 +27,11 @@
     flex-direction: column;
     align-items: center;
     // font-family: $primary-font-family;
+   
+  }
+
+  .image-field {
+      margin-bottom: 10px;
   }
 
   .submit-button {
@@ -36,7 +41,7 @@
     // border-radius: 50%;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
 
