@@ -45,11 +45,11 @@ class Profile extends Component {
     const { image, email } = this.state;
     console.log(email);
     axios
-      .put(`/api/auth/user/${this.props.user.user_id}`, {email, image})
+      .put(`/api/auth/user/${this.props.user.user_id}`, { email, image })
       .then((res) => {
         this.props.getUser(res.data || {});
         this.handleEditView();
-        this.setState({ email: email , image: image });
+        this.setState({ email: email, image: image });
       })
       .catch((err) => console.log(err));
   };
@@ -58,17 +58,17 @@ class Profile extends Component {
     return (
       <div className="profile-container">
         <span className="profile-text">
-          <h1>My Profile</h1>
+          {/* <h1>My Profile</h1> */}
           {this.state.editView ? (
-            <div>
-              <input
+            <div className="edit-fields-container">
+              <input className="image-field"
                 value={this.state.image}
-                name='image'
+                name="image"
                 onChange={(e) => this.handleInput(e)}
               />
-              <input
+              <input className="email-field"
                 value={this.state.email}
-                name='email'
+                name="email"
                 onChange={(e) => this.handleInput(e)}
               />
               <button className="submit-button" onClick={this.updateUser}>
@@ -77,43 +77,40 @@ class Profile extends Component {
             </div>
           ) : (
             <div>
-              <img
-                className="profile-picture"
-                src={this.props.user.image}
-                alt={this.props.user.name}
-              />
-              <div className="edit-buttons">
+              <span className="profile-picture-container">
+                <img
+                  className="profile-picture"
+                  src={this.props.user.image}
+                  alt={this.props.user.name}
+                />
                 <button className="edit-button" onClick={this.handleEditView}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
-                    viewBox="0 0 24 24">
-                    <title>ic_photo_camera_24px</title>
+                    viewBox="0 0 24 24"
+                  >
+                    <title>pencil</title>
                     <g fill="#ffffff">
-                      <circle cx="12" cy="12" r="3.2"></circle>
-                      <path d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"></path>
+                      <path
+                        fill="#ffffff"
+                        d="M22.3,3.9l-2.2-2.2c-1.1-1.1-3.1-1.1-4.2,0L2.3,15.3c-0.1,0.1-0.1,0.2-0.2,0.3c0,0,0,0.1,0,0.1 c0,0,0,0.1,0,0.1l-1,6c-0.1,0.3,0.1,0.6,0.3,0.9C1.5,22.9,1.7,23,2,23c0.1,0,0.1,0,0.2,0l6-1c0,0,0.1,0,0.1,0c0,0,0.1,0,0.1,0 c0.1,0,0.2-0.1,0.3-0.2L22.3,8.1C23.5,7,23.5,5,22.3,3.9z M17,10.6L13.4,7l2.3-2.3l3.6,3.6L17,10.6z"
+                      ></path>
                     </g>
                   </svg>
                 </button>
-                <button className="edit-button" onClick={this.handleEditView}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24">
-                    <title>ic_markunread_24px</title>
-                    <g fill="#ffffff">
-                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path>
-                    </g>
-                  </svg>
+              </span>
+
+              <div>
+                <button className="logout-button" onClick={this.handleLogout}>
+                  Log Out
                 </button>
               </div>
             </div>
           )}
-          <button className="logout-button" onClick={this.handleLogout}>
-            Log Out
-          </button>
+        </span>
+        <span className="user-name">
+          <h2>{this.props.user.name}</h2>
         </span>
       </div>
     );

@@ -1,47 +1,113 @@
 @import "../../variables";
 
 .profile-container {
+  //   position: relative;
   height: calc(100vh - 150px);
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  .profile-text {
-    height: 550px;
-    width: 545px;
-    box-sizing: border-box;
+  .user-name {
+    width: 360px;
+    right: 758px;
+    top: 332px;
+    font-size: 36px;
+    font-family: $primary-font-family;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: calc(250px);
+  }
+
+  .edit-fields-container {
+    height: 375px;
+    width: 275px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: rgb(42, 113, 128);
-    // border: 1px solid black;
-    font-family: $primary-font-family;
+    // font-family: $primary-font-family;
+  }
+
+  .image-field {
+      margin-bottom: 10px;
+      height: 42px;
+      width: 300px;
+      background-color: #e5e5e5;
+      color: #a3a0a0;
+      border: none;
+      // border-bottom: 2px solid white;
+      margin-bottom: 20px;
+      font-size: 16px;
+      padding-left: 20px;
+  }
+
+  .email-field {
+    height: 42px;
+	width: 300px;
+	background-color: #e5e5e5;
+	color: #a3a0a0;
+	border: none;
+	// border-bottom: 2px solid white;
+	margin-bottom: 20px;
+	font-size: 16px;
+	padding-left: 20px;
+  }
+
+  .submit-button {
+    @include button;
+    width: 125px;
+    // height: 50px;
+    // border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
   }
 
   .profile-picture {
-    height: 175px;
-    width: 175px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
   }
 
   .logout-button {
     @include button;
-    width: 150px;
-  }
-
-  .edit-button {
-    @include button;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 125px;
+    // height: 50px;
+    // border-radius: 50%;
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: -20px;
     margin-left: auto;
     margin-right: auto;
   }
-  .edit-buttons {
-    display: flex;
-  }
+}
+
+.edit-button {
+  position: relative;
+  // top: 30%;
+  left: 30%;
+  transform: translate(15%, -160%);
+  // -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  // font-size: 16px;
+  // padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 80%;
 }
