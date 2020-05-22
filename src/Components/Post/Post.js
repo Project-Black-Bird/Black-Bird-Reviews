@@ -8,19 +8,47 @@ import Comments from "../Comments/Comments";
 import Comment from "../Comment/Comment";
 import CommentsMock from "../Comments/COMMENTS_MOCK.json";
 class Post extends React.Component {
+  initialCommentsLimit = 3;
   state = {
     edit: false,
     showComments: false,
-    commentsLimit: 3,
+    commentsPerPage: 5,
+    commentsLimit: 0,
     comments: [],
     renderedComments: [],
   };
+
   constructor(props) {
     super(props);
     this.enterEditMode = this.enterEditMode.bind(this);
     this.doneEditing = this.doneEditing.bind(this);
     this.toggleComments = this.toggleComments.bind(this);
     this.getMoreComments = this.getMoreComments.bind(this);
+    this.state.commentsLimit = this.initialCommentsLimit;
+  }
+  getMoreComments() {
+    /* 
+    get more comments, starting at the last comment_id.
+    this function currently assumes that all comments were fetched
+    when the user toggled comments on.
+    */
+    console.log("getMoreComments");
+    this.setState(
+      {
+        ...this.state,
+        commentsLimit: this.state.commentsLimit + this.state.commentsPerPage,
+      },
+      () => {
+        this.renderComments();
+      }
+    );
+    // let lastRenderedElement = this.state.renderedComments[
+    //   this.state.renderedComments.length - 1
+    // ];
+    // if (lastRenderedElement) {
+    // }
+
+    //  let startIndex = this.state.comments.findIndex((comment)=>{})
   }
   toggleComments() {
     if (this.state.showComments === false) {
@@ -65,7 +93,7 @@ class Post extends React.Component {
     }
     return renderedComments;
   }
-  getMoreComments() {}
+
   render() {
     return (
       <div className="Post-container">
@@ -120,7 +148,7 @@ class Post extends React.Component {
         {this.state.showComments ? (
           <div className="Comments-container">
             {this.state.renderedComments}
-            <button>load more comments</button>
+            <button onClick={this.getMoreComments}>load more comments</button>
             <button onClick={this.toggleComments}>Hide Comments</button>
           </div>
         ) : null}
