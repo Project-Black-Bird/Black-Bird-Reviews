@@ -13,7 +13,7 @@ function Comment(props) {
 Comment.propTypes = {
   username: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  comment_id: PropTypes.string.isRequired,
-  likes: PropTypes.number.isRequired,
+  comment_id: PropTypes.number.isRequired,
+  likes: PropTypes.number,
 };
 export default Comment;
