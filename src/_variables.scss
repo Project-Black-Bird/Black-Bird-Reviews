@@ -5,6 +5,31 @@ $secondary-font-color: rgb(245, 240, 240);
 @mixin button {
     height: 42px;
 	width: 305px;
+	background-color: $primary-font-color;
+    color: $secondary-font-color;
+    font-family: $primary-font-family;
+	// border: 2px solid white;
+	border-radius: 2px;
+	font-size: 16px;
+	font-weight: bold;
+    // padding-left: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $secondary-font-color;
+        color: $primary-font-color;
+
+    }
+
+    &:active {
+        background-color: transparent;
+        color: #444445;
+    }
+}
+
+@mixin edit-buttons {
+    height: 42px;
+	width: 305px;
 	background-color: #2a7180;
     color: $secondary-font-color;
     font-family: $primary-font-family;
@@ -13,10 +38,11 @@ $secondary-font-color: rgb(245, 240, 240);
 	font-size: 16px;
 	font-weight: bold;
     // padding-left: 20px;
+    cursor: pointer;
 
     &:hover {
         background-color: white;
-        color: #2a7180;
+        color: rgb(42, 113, 128);
     }
 
     &:active {
