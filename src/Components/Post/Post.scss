@@ -50,6 +50,14 @@ $actions-height: $line-height * 1.25;
     white-space: pre-line;
     max-height: $line-height * $num-lines;
   }
+  .hide-review {
+    grid-area: hideReview;
+    cursor: pointer;
+  }
+  .hide-review:hover {
+    text-decoration: underline;
+    color: #69605d;
+  }
   .see-more {
     position: absolute;
     right: 1em;
@@ -61,13 +69,32 @@ $actions-height: $line-height * 1.25;
     text-overflow: visible;
     overflow: visible;
     white-space: nowrap;
+    cursor: pointer;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0), #d4e2e5 20%);
     // .CommentForm-container {
     // }
   }
+  .see-more:hover {
+    text-decoration: underline;
+    color: #69605d;
+  }
 }
-
-@media screen and (min-width: 300px) {
+.Post-container[data-see-more-review="true"] {
+  grid-template-areas:
+    "img"
+    "title"
+    "review"
+    "hideReview"
+    "actions"
+    "commentForm"
+    "comments";
+  span.review {
+    height: auto;
+    max-height: unset;
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 500px) {
   .Post-container {
     width: 90%;
     column-gap: 1em;
@@ -101,5 +128,28 @@ $actions-height: $line-height * 1.25;
       justify-self: flex-end;
       margin-right: 10%;
     }
+  }
+  .Post-container[data-see-more-review="true"] {
+    .title {
+      text-align: center;
+    }
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "img"
+      "review"
+      "hideReview"
+      "actions"
+      "commentForm"
+      "comments";
+    grid-template-rows: $title-row-height auto auto auto $actions-height repeat(
+        3,
+        auto
+      );
   }
 }
