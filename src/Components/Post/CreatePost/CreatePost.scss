@@ -1,29 +1,69 @@
+@import '../../../variables';
+
 .CreatePost-container {
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  max-width: 1024px;
-  form {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    textarea {
-      width: 100%;
-      resize: none;
-      font-size: 1.25em;
-      height: 6.25em;
-    }
-    input {
-      font-size: 1em;
-    }
-    button {
-      font-size: 1em;
-    }
-  }
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	align-items: center;
+	max-width: 1024px;
+	form {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		textarea {
+			width: 100%;
+			resize: none;
+			font-size: 16px;
+			height: 250px;
+			background-color: #e5e5e5;
+			border: none;
+			padding-left: 20px;
+			padding-top: 20px;
+		}
+		input {
+			font-size: 1em;
+			background-color: #e5e5e5;
+			color: #a3a0a0;
+			margin-bottom: 1rem;
+			font-size: 1rem;
+			padding-left: 20px;
+			height: 42px;
+			width: 100%;
+			border: none;
+		}
+		button {
+			font-size: 1em;
+			@include button;
+			margin-top: 1.5em;
+			margin-bottom: 3em;
+			// text-align: center;
+			// align-items: center;
+			// margin-left: 120px;
+		}
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.CreatePost-container {
+		width: 60%;
+
+		form {
+			width: 90%;
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.CreatePost-container {
+		width: 90%;
+
+		form {
+			width: 90%;
+		}
+	}
 }
