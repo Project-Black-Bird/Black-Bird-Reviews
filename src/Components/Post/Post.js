@@ -12,6 +12,8 @@ class Post extends React.Component {
   state = {
     edit: false,
     showComments: false,
+    seeMoreReview: false,
+    reviewPreviewLength: 150,
     commentsPerPage: 5,
     commentsLimit: 0,
     comments: [],
@@ -24,6 +26,7 @@ class Post extends React.Component {
     this.doneEditing = this.doneEditing.bind(this);
     this.toggleComments = this.toggleComments.bind(this);
     this.getMoreComments = this.getMoreComments.bind(this);
+    this.toggleMoreReview = this.toggleMoreReview.bind(this);
     this.state.commentsLimit = this.initialCommentsLimit;
   }
   getMoreComments() {
@@ -93,10 +96,14 @@ class Post extends React.Component {
     }
     return renderedComments;
   }
-
+  toggleMoreReview() {
+    this.setState({ ...this.state, seeMoreReview: !this.state.seeMoreReview });
+  }
   render() {
     return (
-      <div className="Post-container">
+      <div
+        className="Post-container"
+        data-see-more-review={this.state.seeMoreReview}>
         {this.state.edit ? (
           <EditPost
             // post_id={this.props.post_id}
@@ -110,11 +117,31 @@ class Post extends React.Component {
             <img src={this.props.image} alt="a post image" />
             <span className="title">{this.props.title}</span>
             <span className="review">
-              {this.props.review}
-              {this.props.review.length > 125 ? (
-                <div className="see-more">... See More</div>
-              ) : null}
+              {this.props.review.length > this.state.reviewPreviewLength ? (
+                <>
+                  {this.state.seeMoreReview ? (
+                    this.props.review
+                  ) : (
+                    <>
+                      {this.props.review.substring(
+                        0,
+                        this.state.reviewPreviewLength
+                      )}
+                      <div className="see-more" onClick={this.toggleMoreReview}>
+                        ... See More
+                      </div>
+                    </>
+                  )}
+                </>
+              ) : (
+                this.props.review
+              )}
             </span>
+            {this.state.seeMoreReview ? (
+              <span className="hide-review" onClick={this.toggleMoreReview}>
+                Hide Review
+              </span>
+            ) : null}
 
             <div className="actions">
               {this.props.user.email && this.props.user.user_id ? (
