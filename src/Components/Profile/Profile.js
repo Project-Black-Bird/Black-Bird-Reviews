@@ -66,7 +66,7 @@ class Profile extends Component {
                 name="image"
                 onChange={(e) => this.handleInput(e)}
               />
-              <input
+              <input className="email-field"
                 value={this.state.email}
                 name="email"
                 onChange={(e) => this.handleInput(e)}

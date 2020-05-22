@@ -27,11 +27,31 @@
     flex-direction: column;
     align-items: center;
     // font-family: $primary-font-family;
-   
   }
 
   .image-field {
       margin-bottom: 10px;
+      height: 42px;
+      width: 300px;
+      background-color: #e5e5e5;
+      color: #a3a0a0;
+      border: none;
+      // border-bottom: 2px solid white;
+      margin-bottom: 20px;
+      font-size: 16px;
+      padding-left: 20px;
+  }
+
+  .email-field {
+    height: 42px;
+	width: 300px;
+	background-color: #e5e5e5;
+	color: #a3a0a0;
+	border: none;
+	// border-bottom: 2px solid white;
+	margin-bottom: 20px;
+	font-size: 16px;
+	padding-left: 20px;
   }
 
   .submit-button {
