@@ -6,100 +6,100 @@ $review-height: ($line-height * $num-lines);
 $actions-height: $line-height * 1.25;
 
 .Post-container {
-  border: 1px solid black;
-  background-color: #d4e2e5;
-  border-radius: 32px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1em;
-  width: 80%;
-  min-width: 100px;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  max-width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  row-gap: $line-height / 4;
-  grid-template-areas:
-    "img"
-    "title"
-    "review"
-    "actions"
-    "commentForm"
-    "comments";
-  display: grid;
-  img {
-    grid-area: img;
-    width: auto;
-    height: auto;
-    justify-self: center;
-  }
-  .title {
-    font-size: $line-height;
-    height: 100%;
-    grid-area: title;
-    font-weight: bold;
-  }
-  .review {
-    position: relative;
-    grid-area: review;
-    text-align: left;
-    overflow: hidden;
-    text-overflow: hidden;
-    white-space: pre-line;
-    max-height: $line-height * $num-lines;
-  }
-  .see-more {
-    position: absolute;
-    right: 1em;
-    bottom: 0;
-    width: 30%;
-    font-size: $line-height / 1.75;
-    height: $line-height * 1.05;
-    text-align: right;
-    text-overflow: visible;
-    overflow: visible;
-    white-space: nowrap;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0), #d4e2e5 20%);
-    // .CommentForm-container {
-    // }
-  }
+	border: 1px solid black;
+	background-color: #d4e2e5;
+	border-radius: 32px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em;
+	width: 80%;
+	min-width: 100px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	max-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	align-items: center;
+	row-gap: $line-height / 4;
+	grid-template-areas:
+		'img'
+		'title'
+		'review'
+		'actions'
+		'commentForm'
+		'comments';
+	display: grid;
+	img {
+		grid-area: img;
+		width: auto;
+		height: auto;
+		justify-self: center;
+	}
+	.title {
+		font-size: $line-height;
+		height: 100%;
+		grid-area: title;
+		font-weight: bold;
+	}
+	.review {
+		position: relative;
+		grid-area: review;
+		text-align: left;
+		overflow: hidden;
+		text-overflow: hidden;
+		white-space: pre-line;
+		max-height: $line-height * $num-lines;
+	}
+	.see-more {
+		position: absolute;
+		right: 1em;
+		bottom: 0;
+		width: 30%;
+		font-size: $line-height / 1.75;
+		height: $line-height * 1.05;
+		text-align: right;
+		text-overflow: visible;
+		overflow: visible;
+		white-space: nowrap;
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0), #d4e2e5 20%);
+		// .CommentForm-container {
+		// }
+	}
 }
 
 @media screen and (min-width: 300px) {
-  .Post-container {
-    width: 90%;
-    column-gap: 1em;
-    line-height: $line-height;
-    grid-template-columns: minmax(3em, 1fr) 3fr;
-    grid-template-rows: $title-row-height $review-height $actions-height auto auto;
-    grid-template-areas:
-      "img title"
-      "img review"
-      "img actions"
-      "commentForm commentForm"
-      "comments comments";
-    img {
-      max-width: 100%;
-      max-height: $title-row-height + $review-height + $actions-height;
-    }
-    .title {
-      text-align: left;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-    .review {
-      padding-right: 1em;
-    }
-    .see-more {
-      text-align: center;
-    }
-    .actions {
-      grid-area: actions;
-      justify-self: flex-end;
-      margin-right: 10%;
-    }
-  }
+	.Post-container {
+		width: 90%;
+		column-gap: 1em;
+		line-height: $line-height;
+		grid-template-columns: minmax(3em, 1fr) 3fr;
+		grid-template-rows: $title-row-height $review-height $actions-height auto auto;
+		grid-template-areas:
+			'img title'
+			'img review'
+			'img actions'
+			'commentForm commentForm'
+			'comments comments';
+		img {
+			max-width: 100%;
+			max-height: $title-row-height + $review-height + $actions-height;
+		}
+		.title {
+			text-align: left;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.review {
+			padding-right: 1em;
+		}
+		.see-more {
+			text-align: center;
+		}
+		.actions {
+			grid-area: actions;
+			justify-self: flex-end;
+			margin-right: 10%;
+		}
+	}
 }
