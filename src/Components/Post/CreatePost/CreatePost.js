@@ -1,5 +1,8 @@
 import React from "react";
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { getPosts } from '../../../redux/reducer';
 import "./CreatePost.scss";
 class CreatePost extends React.Component {
   state = {
@@ -15,17 +18,35 @@ class CreatePost extends React.Component {
   handleInput(e) {
     this.setState({ ...this.state, [e.target.name]: e.target.value });
   }
+
+  getPosts(){
+    axios.get('/api/posts')
+         .then((res)=>{
+           // Get posts
+          //  console.log(res.data);
+           this.props.getPosts(res.data);
+           console.log(this.props.posts);
+         })
+         .catch(err => console.log(err));
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const {title, image, review} = this.state,
           {user_id} = this.props.user;
+    // console.log(this.props.user)
+          // {user_id} = this.props.user;
     axios.post('/api/post', {user_id, title, image, review})
-         .then(()=>{
+         .then((res)=>{
            // Get posts
-           
+            this.getPosts();
          })
+         .catch(err => console.log(err));
+
+    // console.log(this.props.posts);
   }
   render() {
+    // console.log(this.props.user);
     return (
       <div className="CreatePost-container">
         <h4>Create a review</h4>
@@ -41,7 +62,7 @@ class CreatePost extends React.Component {
 }
 
 const mapStateToProps = (reduxState) => reduxState;
-
-export default withRouter(
-  connect(mapStateToProps, { getPosts })(CreatePost)
-);
+export default connect(mapStateToProps, { getPosts })(CreatePost);
+// export default withRouter(
+//   connect(mapStateToProps, { getPosts })(CreatePost)
+// );
