@@ -3,36 +3,38 @@ import { connect } from 'react-redux';
 import Post from '../Post/Post';
 import './Posts.css';
 import posts from './POSTS_MOCK.json';
+import {getPosts} from '../../redux/reducer';
 import CreatePost from '../Post/CreatePost/CreatePost';
+import axios from 'axios';
 class Posts extends React.Component {
 	state = {
-		posts: [],
+		posts: this.props.posts || [],
 		search: '',
 	};
 	constructor(props) {
 		super(props);
 		this.updatePost = this.updatePost.bind(this);
 	}
+
+
 	getAllPosts() {
-		this.setState({ posts: posts });
+		//this.setState({ posts: posts });
+		axios.get('/api/posts/')
+		.then(res =>{
+			this.props.getPosts(res.data);
+		})
+		.catch(err => console.log(err));
 	}
 	updatePost(post_id, title, image, review) {
 		// this could be something like optimistic update
-		this.setState({
-			...this.state,
-			posts: this.state.posts.map(post => {
-				if (post.post_id == post_id) {
-					console.log('found post, updating...');
-					post.title = title;
-					post.image = image;
-					post.review = review;
-				}
-				return post;
-			}),
-		});
+		axios.put(`/api/posts/${post_id}`,{post_id, title, image, review})
+		.then(res =>{
+			this.getAllPosts();
+		})
+		.catch(err => console.log(err));
 	}
 	renderPosts() {
-		return this.state.posts.map(post => {
+		return this.props.posts.map(post => {
 			const { search } = this.state;
 			let user = { ...(this.props.user || {}) };
 			user = user || {};
@@ -52,7 +54,7 @@ class Posts extends React.Component {
 					image={post.image}
 					title={post.title}
 					review={post.review}
-					likes={post.likes}
+					likes={post.likes || 0}
 					user={this.props.user}
 					updatePost={this.updatePost}
 				/>
@@ -82,8 +84,8 @@ class Posts extends React.Component {
 	}
 }
 function mapStateToProps(state) {
-	let { user } = state;
-	return { user };
+	let { user, posts } = state;
+	return { user, posts };
 }
-const mapDispatchToProps = {};
+const mapDispatchToProps = {getPosts};
 export default connect(mapStateToProps, mapDispatchToProps)(Posts);
