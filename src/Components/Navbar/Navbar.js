@@ -23,6 +23,9 @@ class Navbar extends Component {
 	render() {
 		return (
       <div className="nav-container">
+        {/* <div className="logo">
+          <img src="https://www.freeiconspng.com/uploads/raven-transparent-16.png" />
+        </div> */}
         <h1>
           <Link to="/" className="nav-logo">
             Blackbird Reviews
