@@ -12,7 +12,20 @@
 	text-align: start;
 	background-color: #e1e9ee;
 	color: #283e4a;
-	border: 1px solid #878a8c;
+	/* border: 1px solid #878a8c; */
+	border: none;
 	border-radius: 2px;
 	padding-left: 2em;
+}
+
+.search-icon {
+	width: 20px;
+	background-color: #e1e9ee;
+	padding: 1.4em;
+}
+
+form {
+	border: 1px solid #878a8c;
+	width: 450px;
+	justify-content: center;
 }
