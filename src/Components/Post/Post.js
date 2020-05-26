@@ -145,12 +145,12 @@ class Post extends React.Component {
 						) : null}
 
 						<div className="actions">
-							{this.props.user.email && this.props.user.user_id ? (
+							{this.props.user.user_id === this.props.user_id ? (
 								<span className="edit-delete">
 									<button className="edit" onClick={this.enterEditMode}>
 										Edit
 									</button>
-									<button className="delete">Delete</button>
+									<button className="delete" onClick={()=>this.props.deletePost(this.props.post_id)}>Delete</button>
 								</span>
 							) : null}
 							<span className="like-share-comments">
@@ -172,7 +172,7 @@ class Post extends React.Component {
 					</>
 				)}
 				{this.props.user.user_id && this.props.user.email ? (
-					<CommentForm />
+					<CommentForm edit={this.state.edit} />
 				) : null}
 				{this.state.showComments ? (
 					<div className="Comments-container">

@@ -57,11 +57,11 @@ routes.delete("/post/:id", posts.deletePost);
 
 /* comment endpoints */
 
-routes.post("/api/comments", comments.createComment);
-routes.get("/api/post/comments/:id", comments.getPostComments);
-routes.put("/api/comments/:id", comments.editUserComment);
-routes.get("/api/comments/:id", comments.getUserComments);
-routes.delete("/api/comments/:id", comments.deleteUserComment);
+routes.post("/comments", comments.createComment);
+routes.get("/comments/post/:id", comments.getPostComments);
+routes.put("/comments/:id", comments.editUserComment);
+routes.get("/comments/:id", comments.getUserComments);
+routes.delete("/comments/:id", comments.deleteUserComment);
 
 // index.js expects object routes as the default export
 module.exports = routes;
