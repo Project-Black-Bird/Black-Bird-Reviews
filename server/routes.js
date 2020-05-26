@@ -34,6 +34,7 @@ const notImplemented = (req, res) => {
   is accessible at '/api/user'
 */
 // auth endpoints
+routes.get("/auth/user", auth.getUser);
 routes.post("/auth/login", auth.login);
 routes.post("/auth/register", auth.register);
 routes.post("/auth/logout", auth.logout);
@@ -54,12 +55,13 @@ routes.post("/post", posts.createPost);
 // delete a post by id
 routes.delete("/post/:id", posts.deletePost);
 
-/* comment endpoints */ 
-routes.post('/api/comments', comments.createComment);
-routes.get('/api/post/comments/:id', comments.getPostComments);
-routes.put('/api/comments/:id', comments.editUserComment);
-routes.get('/api/comments/:id', comments.getUserComments);
-routes.delete('/api/comments/:id', comments.deleteUserComment);
+/* comment endpoints */
+
+routes.post("/api/comments", comments.createComment);
+routes.get("/api/post/comments/:id", comments.getPostComments);
+routes.put("/api/comments/:id", comments.editUserComment);
+routes.get("/api/comments/:id", comments.getUserComments);
+routes.delete("/api/comments/:id", comments.deleteUserComment);
 
 // index.js expects object routes as the default export
 module.exports = routes;
