@@ -65,11 +65,12 @@ class Posts extends React.Component {
 					image={post.image}
 					title={post.title}
 					review={post.review}
-					likes={post.likes || 0}
+					likes={post.likes_count || 0}
 					user_id={post.user_id}
 					username={post.name}
 					updatePost={this.updatePost}
 					deletePost={this.deletePost}
+					likePost={this.likePost}
 				/>
 			);
 		});

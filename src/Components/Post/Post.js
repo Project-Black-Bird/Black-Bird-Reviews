@@ -161,7 +161,7 @@ class Post extends React.Component {
 								>
 									{(this.props.comments || []).length} Comments
 								</button>
-								<button type="button" className="like">
+								<button type="button" className="like" onClick={()=>this.props.likePost(1,this.props.post_id, this.props.user_id)}>
 									{`Like ${this.props.likes || 0}`}
 								</button>
 								<button type="button" className="share">
