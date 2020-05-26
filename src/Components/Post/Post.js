@@ -150,7 +150,7 @@ class Post extends React.Component {
 									<button className="edit" onClick={this.enterEditMode}>
 										Edit
 									</button>
-									<button className="delete">Delete</button>
+									<button className="delete" onClick={()=>this.props.deletePost(this.props.post_id)}>Delete</button>
 								</span>
 							) : null}
 							<span className="like-share-comments">
