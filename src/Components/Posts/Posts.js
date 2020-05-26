@@ -15,12 +15,9 @@ class Posts extends React.Component {
 	constructor(props) {
 		super(props);
 		this.updatePost = this.updatePost.bind(this);
-<<<<<<< HEAD
 		this.toggleReviewForm = this.toggleReviewForm.bind(this);
-=======
 		this.getAllPosts = this.getAllPosts.bind(this);
 		this.deletePost = this.deletePost.bind(this);
->>>>>>> master
 	}
 
 	getAllPosts() {
@@ -42,12 +39,13 @@ class Posts extends React.Component {
 			.catch(err => console.log(err));
 	}
 
-	deletePost(post_id){
-		axios.delete(`/api/post/${post_id}`)
-		.then( () =>{
-			this.getAllPosts();
-		})
-		.catch(err => console.log(err));
+	deletePost(post_id) {
+		axios
+			.delete(`/api/post/${post_id}`)
+			.then(() => {
+				this.getAllPosts();
+			})
+			.catch(err => console.log(err));
 	}
 
 	renderPosts() {
