@@ -97,11 +97,16 @@ class Posts extends React.Component {
 		return (
 			<div className="Posts-container">
 				<div>
-					{this.props.user.user_id && this.props.user.email ? (
-						<CreatePost />
+					{this.props.user.user_id && this.state.showReviewForm ? (
+						<CreatePost hideReviewForm={this.toggleReviewForm} />
 					) : null}
-					{this.props.user.user_id && this.props.user.email ? (
-						<button onClick={this.toggleReviewForm}>Create a Review</button>
+					{this.props.user.user_id && !this.state.showReviewForm ? (
+						<button
+							className="create-review-btn"
+							onClick={this.toggleReviewForm}
+						>
+							Create a Review
+						</button>
 					) : null}
 
 					<div>
