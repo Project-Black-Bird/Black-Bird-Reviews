@@ -111,3 +111,10 @@
   margin-right: auto;
   opacity: 80%;
 }
+
+.liked-posts-container {
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    transform: translate( 60%);
+}

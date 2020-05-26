@@ -15,6 +15,7 @@ class CreatePost extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
   handleInput(e) {
     this.setState({ ...this.state, [e.target.name]: e.target.value });
   }

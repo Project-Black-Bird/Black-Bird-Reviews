@@ -99,6 +99,11 @@ class Post extends React.Component {
 	toggleMoreReview() {
 		this.setState({ ...this.state, seeMoreReview: !this.state.seeMoreReview });
 	}
+
+	// toggleEditMode() {
+	// 	this.setState({...this.state, editMode: !this.state.enterEditMode})
+	// }
+
 	render() {
 		return (
 			<div
@@ -144,6 +149,8 @@ class Post extends React.Component {
 							</span>
 						) : null}
 
+						{/* <div className="edit-buttons" >
+						<button>...</button> */}
 						<div className="actions">
 							{this.props.user.email && this.props.user.user_id ? (
 								<span className="edit-delete">
@@ -158,7 +165,7 @@ class Post extends React.Component {
 									type="button"
 									className="comment"
 									onClick={this.toggleComments}
-								>
+									>
 									{(this.props.comments || []).length} Comments
 								</button>
 								<button type="button" className="like">
@@ -169,6 +176,7 @@ class Post extends React.Component {
 								</button>
 							</span>
 						</div>
+									{/* </div> */}
 					</>
 				)}
 				{this.props.user.user_id && this.props.user.email ? (
