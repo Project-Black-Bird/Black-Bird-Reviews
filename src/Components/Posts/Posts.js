@@ -14,6 +14,8 @@ class Posts extends React.Component {
 	constructor(props) {
 		super(props);
 		this.updatePost = this.updatePost.bind(this);
+		this.getAllPosts = this.getAllPosts.bind(this);
+		this.deletePost = this.deletePost.bind(this);
 	}
 
 
@@ -33,6 +35,15 @@ class Posts extends React.Component {
 		})
 		.catch(err => console.log(err));
 	}
+
+	deletePost(post_id){
+		axios.delete(`/api/post/${post_id}`)
+		.then( () =>{
+			this.getAllPosts();
+		})
+		.catch(err => console.log(err));
+	}
+
 	renderPosts() {
 		return this.props.posts.map(post => {
 			const { search } = this.state;
@@ -55,8 +66,10 @@ class Posts extends React.Component {
 					title={post.title}
 					review={post.review}
 					likes={post.likes || 0}
-					user={this.props.user}
+					user_id={post.user_id}
+					username={post.name}
 					updatePost={this.updatePost}
+					deletePost={this.deletePost}
 				/>
 			);
 		});

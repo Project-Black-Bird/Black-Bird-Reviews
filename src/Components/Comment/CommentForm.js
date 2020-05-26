@@ -14,6 +14,7 @@ class CommentForm extends Component {
   // };
 
   render() {
+    // console.log(this.props.edit);
     return (
       <form className="CommentForm-container" onSubmit={this.handleSubmit}>
         {/* <h4>Write your comment</h4> */}
@@ -22,10 +23,10 @@ class CommentForm extends Component {
           label="Comment"
           // onChange={this.handleChange}
           className="textArea"
-          placeholder="Type your comment here.."
+          placeholder="Type your comment here..."
         />
         <div>
-          <button className="form-btn" type="submit">
+          <button className="form-btn" type="submit" disabled={this.props.edit}>
             Submit
           </button>
         </div>

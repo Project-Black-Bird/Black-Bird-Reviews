@@ -80,10 +80,16 @@ $actions-height: $line-height * 1.25;
     text-decoration: underline;
     color: #69605d;
   }
-  .edit {
-    background-color: #c7cbcc;
-    border: none;
+  .action-buttons{
+      background-color: #c7cbcc;
+      border: none;
+      cursor: pointer;
+      .space{
+     display: inline-block;
+     margin-right: 1em;
+      }
   }
+  
 }
 .Post-container[data-see-more-review='true'] {
 	grid-template-areas:
