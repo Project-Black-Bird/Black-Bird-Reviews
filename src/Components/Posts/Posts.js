@@ -55,7 +55,8 @@ class Posts extends React.Component {
 					title={post.title}
 					review={post.review}
 					likes={post.likes || 0}
-					user={this.props.user}
+					user_id={post.user_id}
+					username={post.name}
 					updatePost={this.updatePost}
 				/>
 			);
