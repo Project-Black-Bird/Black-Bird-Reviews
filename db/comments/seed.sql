@@ -3,9 +3,5 @@ CREATE TABLE comments(
   user_id int references users(user_id),
   comment text CHECK (LENGTH(comment) <= 500 ),
   like_id int references likes(like_id),
-<<<<<<< HEAD
-  post_id int references post(post_id)
-=======
   post_id int references posts(post_id)
->>>>>>> master
 );
