@@ -10,10 +10,12 @@ class Posts extends React.Component {
 	state = {
 		posts: this.props.posts || [],
 		search: '',
+		showReviewForm: false,
 	};
 	constructor(props) {
 		super(props);
 		this.updatePost = this.updatePost.bind(this);
+		this.toggleReviewForm = this.toggleReviewForm.bind(this);
 	}
 
 	getAllPosts() {
@@ -70,26 +72,26 @@ class Posts extends React.Component {
 		this.setState({ search: e.target.value });
 	};
 
+	toggleReviewForm() {
+		this.setState({
+			...this.state,
+			showReviewForm: !this.state.showReviewForm,
+		});
+	}
+
 	render() {
 		return (
 			<div className="Posts-container">
-				{/* <CreatePost /> */}
-				{this.props.user.user_id && this.props.user.email ? (
-					<CreatePost />
-				) : null}
 				<div>
+					{this.props.user.user_id && this.props.user.email ? (
+						<CreatePost />
+					) : null}
+					{this.props.user.user_id && this.props.user.email ? (
+						<button onClick={this.toggleReviewForm}>Create a Review</button>
+					) : null}
+
 					<div>
 						<div className="container-input">
-							{/* <label className="search-icon">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-								>
-									<path d="M15.59,13.91l2.78,2.69a1.25,1.25,0,1,1-1.74,1.8l-2.82-2.73a8,8,0,1,1,1.78-1.76ZM14.64,9.2A5.45,5.45,0,1,0,9.2,14.64,5.45,5.45,0,0,0,14.64,9.2Z" />
-								</svg>
-							</label> */}
 							<button type="submit" class="search-button">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -108,13 +110,6 @@ class Posts extends React.Component {
 								onChange={this.onchange}
 							/>
 						</div>
-						{/* <div>
-							<input
-								className="search-input"
-								placeholder="Search Title"
-								onChange={this.onchange}
-							/>
-						</div> */}
 					</div>
 				</div>
 
