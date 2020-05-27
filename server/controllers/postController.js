@@ -56,4 +56,15 @@ module.exports = {
         console.log(err);
       });
   },
+  likePost: (req, res) => {
+    const { post_id, user_id } = req.body,
+      db = req.app.get("db");
+    db.likes
+      .add_like(post_id, user_id)
+      .then(() => res.sendStatus(200))
+      .catch((err) => {
+        res.status(500).send(err);
+        console.log(err);
+      });
+  },
 };
