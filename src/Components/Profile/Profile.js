@@ -72,7 +72,7 @@ class Profile extends Component {
                 onChange={(e) => this.handleInput(e)}
               />
               <button className="submit-button" onClick={this.updateUser}>
-                Submit
+                Save Changes
               </button>
             </div>
           ) : (

@@ -129,7 +129,7 @@ class Post extends React.Component {
                         this.state.reviewPreviewLength
                       )}
                       <div className="see-more" onClick={this.toggleMoreReview}>
-                        ... See More
+                        ...See More
                       </div>
                     </>
                   )}
@@ -193,7 +193,23 @@ class Post extends React.Component {
                   className="action-buttons"
                   onClick={this.toggleComments}
                 >
-                  Comments {(this.props.comments || []).length}
+                  <svg
+                    className="space"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                  >
+                    <title>chat-46</title>
+                    <g fill="#2a7180">
+                      <path d="M20,6v8c0,0.552-0.448,1-1,1h-7.359L7,19h7l6,4v-4h3c0.552,0,1-0.448,1-1V7 c0-0.552-0.448-1-1-1H20z"></path>{" "}
+                      <path
+                        fill="#2a7180"
+                        d="M17,0H1C0.448,0,0,0.448,0,1v11c0,0.552,0.448,1,1,1h3v5.469L11,13h6c0.552,0,1-0.448,1-1V1 C18,0.448,17.552,0,17,0z"
+                      ></path>
+                    </g>
+                  </svg>
+                  Comment {(this.props.comments || []).length}
                 </button>
                 <>|</>
                 <button type="button" className="action-buttons">
@@ -213,10 +229,26 @@ class Post extends React.Component {
                       ></path>
                     </g>
                   </svg>
-                  {`${this.props.likes || 0}`}
+                  {`Like ${this.props.likes || 0}`}
                 </button>
                 <>|</>
                 <button type="action-buttons" className="action-buttons">
+                  <svg
+                    className="space"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                  >
+                    <title>square-upload</title>
+                    <g fill="#2a7180">
+                      <polygon
+                        fill="#2a7180"
+                        points="6,8 12,1 18,8 13,8 13,17 11,17 11,8 "
+                      ></polygon>{" "}
+                      <path d="M22,21H2v-6H0v7c0,0.552,0.448,1,1,1h22c0.552,0,1-0.448,1-1v-7h-2V21z"></path>
+                    </g>
+                  </svg>
                   Share
                 </button>
               </span>
@@ -229,8 +261,12 @@ class Post extends React.Component {
         {this.state.showComments ? (
           <div className="Comments-container">
             {this.state.renderedComments}
-            <button onClick={this.getMoreComments}>View more comments</button>
-            <button onClick={this.toggleComments}>Hide Comments</button>
+            <button className="comments-buttons" onClick={this.getMoreComments}>
+              View more comments
+            </button>
+            <button className="comments-buttons" onClick={this.toggleComments}>
+              Hide Comments
+            </button>
           </div>
         ) : null}
       </div>

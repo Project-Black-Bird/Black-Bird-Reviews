@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Post from '../Post/Post';
-import './Posts.css';
+import './Posts.scss';
 import posts from './POSTS_MOCK.json';
 import { getPosts } from '../../redux/reducer';
 import CreatePost from '../Post/CreatePost/CreatePost';
@@ -105,7 +105,7 @@ class Posts extends React.Component {
 							className="create-review-btn"
 							onClick={this.toggleReviewForm}
 						>
-							Create a Review
+							Write a Review
 						</button>
 					) : null}
 

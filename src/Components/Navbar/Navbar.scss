@@ -2,14 +2,13 @@
 
 .nav-container {
     height: 125px;
+    width: 100vw;
     background-color: $primary-font-color;
     border-bottom: $primary-font-color;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    // background-image: url("https://www.freeiconspng.com/uploads/raven-transparent-16.png");
-    
     background-repeat: no-repeat;
     background-position: left;
     background-size: 120px;    
