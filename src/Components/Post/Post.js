@@ -185,11 +185,7 @@ class Post extends React.Component {
                   type="button"
                   className="action-buttons"
                   onClick={() =>
-                    this.props.likePost(
-                      1,
-                      this.props.post_id,
-                      this.props.user_id
-                    )
+                    this.props.likePost(this.props.post_id, this.props.user_id)
                   }>
                   <svg
                     className="space"

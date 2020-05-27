@@ -18,6 +18,7 @@ class Posts extends React.Component {
     this.toggleReviewForm = this.toggleReviewForm.bind(this);
     this.getAllPosts = this.getAllPosts.bind(this);
     this.deletePost = this.deletePost.bind(this);
+    this.likePost = this.likePost.bind(this);
   }
 
   getAllPosts() {
@@ -42,6 +43,15 @@ class Posts extends React.Component {
   deletePost(post_id) {
     axios
       .delete(`/api/post/${post_id}`)
+      .then(() => {
+        this.getAllPosts();
+      })
+      .catch((err) => console.log(err));
+  }
+
+  likePost(post_id, user_id) {
+    axios
+      .post(`/api/post/${post_id}`, { post_id, user_id })
       .then(() => {
         this.getAllPosts();
       })
