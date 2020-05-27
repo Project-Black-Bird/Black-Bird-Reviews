@@ -12,9 +12,13 @@ class EditPost extends React.Component {
     this.handleImageInput = this.handleImageInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleReviewInput = this.handleReviewInput.bind(this);
+    this.handleTitleInput = this.handleTitleInput(this);
   }
   handleImageInput(e) {
     this.setState({ ...this.state, image: e.target.value });
+  }
+  handleTitleInput(e) {
+    this.setState({ ...this.state, title: e.target.value });
   }
   handleReviewInput(e) {
     this.setState({
@@ -41,7 +45,11 @@ class EditPost extends React.Component {
             alt="loading..."
           />
         </div>
-        <input name="title" value={this.state.title} />
+        <input
+          name="title"
+          onChange={this.handleTitleInput}
+          value={this.state.title}
+        />
         <textarea
           name="review"
           value={this.state.review}

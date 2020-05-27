@@ -1,9 +1,8 @@
 ///<reference types='jest' />
-///<reference types='mocha' />
-// /<reference types='react-test-renderer'/>
 import React from "react";
-import Post from "./Post";
+import Post from "../../Components/Post/Post";
 import renderer from "react-test-renderer";
+// below is required with redux
 import { Provider } from "react-redux";
 import store from "../../redux/store";
 
@@ -15,6 +14,7 @@ describe("Post Component", () => {
     email: "blackbirdreviews@yahoo.com",
   };
   let examplePost = {
+    post_id: 0,
     title: "An example Review",
     likes: 1,
     userId: 0,
@@ -32,18 +32,15 @@ describe("Post Component", () => {
   beforeEach(() => {
     component = renderer.create(
       <Provider store={store}>
-        <Post
-          image={examplePost.image}
-          review={examplePost.review}
-          title={examplePost.title}
-          likes={examplePost.likes}
-        />
+        <Post {...examplePost} />
       </Provider>
     );
     testInstance = component.root;
   });
   test("Should have the correct DOM structure when the user is not logged in", () => {
+    // findByType === document.getElementsByTagName
     let image = testInstance.findByType("img");
+    // find all children with the given attribute:value pair (in react camel case)
     let titleElement = testInstance.findByProps({ className: "title" });
     let titleText = titleElement.children[0];
     let reviewElement = testInstance.findByProps({ className: "review" });
@@ -58,9 +55,10 @@ describe("Post Component", () => {
       className: "share",
     });
     let shareButtonText = shareButton.children[0];
+    // make assertions
     expect(image.props.src).toEqual(examplePost.image);
     expect(titleText).toEqual(examplePost.title);
-    expect(reviewText).toEqual(examplePost.review);
+    expect(reviewText).toEqual(examplePost.review.substring(0, 150));
     expect(shareButtonText).toEqual("Share");
     expect(likeButtonText.trim()).toEqual(`Like ${examplePost.likes}`);
     try {
@@ -68,4 +66,5 @@ describe("Post Component", () => {
       throw Error("edit delete should not exist now");
     } catch (e) {}
   });
+  test("something else", () => {});
 });

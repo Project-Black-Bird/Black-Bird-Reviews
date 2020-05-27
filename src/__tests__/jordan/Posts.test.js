@@ -1,7 +1,7 @@
 import React from "react";
-import Posts from "./Posts";
+import Posts from "../../Components/Posts/Posts";
 import TestRenderer from "react-test-renderer";
-import PostsMock from "./POSTS_MOCK.json";
+import PostsMock from "../../Components/Posts/POSTS_MOCK.json";
 describe("Posts Component", () => {
   let component;
   let testInstance;

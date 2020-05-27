@@ -3,6 +3,11 @@ import PropTypes from "prop-types";
 
 import "./Comment.scss";
 function Comment(props) {
+  if (props.username == null) {
+    throw new TypeError(
+      `Component Comment: props.username is required but recieved ${props.username}`
+    );
+  }
   return (
     <div className="Comment-container">
       <h3>{props.username}</h3>
