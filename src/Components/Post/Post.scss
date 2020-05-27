@@ -1,3 +1,5 @@
+@import '../../variables';
+
 $line-height: 1.5rem;
 $font-size: $line-height / 0.75;
 $num-lines: 5;
@@ -22,6 +24,7 @@ $actions-height: $line-height * 1.25;
   margin-right: auto;
   align-items: center;
   row-gap: $line-height / 4;
+  font-family: $primary-font-family;
   grid-template-areas:
     "img"
     "title"
@@ -61,9 +64,9 @@ $actions-height: $line-height * 1.25;
   }
   .see-more {
     position: absolute;
-    right: 1em;
+    right: 5em;
     bottom: 0;
-    width: 30%;
+    width: 40%;
     font-size: $line-height / 1.75;
     height: $line-height * 1.05;
     text-align: right;
@@ -71,7 +74,8 @@ $actions-height: $line-height * 1.25;
     overflow: visible;
     white-space: nowrap;
     cursor: pointer;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0), #d4e2e5 20%);
+    // background: linear-gradient(135deg, rgba(255, 255, 255, 0), #d4e2e5 20%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0), #c7cbcc 20%);
     // .CommentForm-container {
     // }
   }
@@ -79,7 +83,36 @@ $actions-height: $line-height * 1.25;
     text-decoration: underline;
     color: #69605d;
   }
+  .action-buttons{
+      background-color: #c7cbcc;
+      border: none;
+      cursor: pointer;
+      font-family: $primary-font-family;
+      .space{
+     display: inline-block;
+     margin-right: 1em;
+      }
+  }
+
+  .action-buttons:hover{
+    text-decoration: underline;
+    color: #69605d;
+  }
+
+  .action-buttons:focus {
+    outline: none;
+  }
+  
 }
+
+.comments-buttons {
+  @include button;
+  width: 200px;
+  height: 2.5em;
+
+
+}
+
 .Post-container[data-see-more-review='true'] {
 	grid-template-areas:
 		'img'

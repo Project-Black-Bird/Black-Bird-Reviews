@@ -72,7 +72,7 @@ class Profile extends Component {
                 onChange={(e) => this.handleInput(e)}
               />
               <button className="submit-button" onClick={this.updateUser}>
-                Submit
+                Save Changes
               </button>
             </div>
           ) : (
@@ -112,6 +112,9 @@ class Profile extends Component {
         <span className="user-name">
           <h2>{this.props.user.name}</h2>
         </span>
+        <div className="liked-posts-container">
+    <h2>Liked Posts:</h2>
+</div>
       </div>
     );
   }

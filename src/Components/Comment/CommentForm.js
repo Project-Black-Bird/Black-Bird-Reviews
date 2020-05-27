@@ -23,7 +23,7 @@ class CommentForm extends Component {
           label="Comment"
           // onChange={this.handleChange}
           className="textArea"
-          placeholder="Type your comment here.."
+          placeholder="Type your comment here..."
         />
         <div>
           <button className="form-btn" type="submit" disabled={this.props.edit}>
