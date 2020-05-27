@@ -2,17 +2,16 @@
 
 .nav-container {
     height: 125px;
+    width: 100vw;
     background-color: $primary-font-color;
     border-bottom: $primary-font-color;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    // background-image: url("https://b.thumbs.redditmedia.com/gtZF-udbUhsYH-wNsWWv73iKF1d1yDELoxRfsXAtFmI.png");
-    // background-image: url("https://igappblobs.azureedge.net/users/1931849/2182611/apple-touch-icon-precomposed.png?v=12");
     background-repeat: no-repeat;
-    background-position: left bottom;
-    background-size: 150px;    
+    background-position: left;
+    background-size: 120px;    
 }
 
 .nav-logo {
@@ -24,6 +23,12 @@
     line-height: 36px;
     text-decoration: none;
 }
+
+// .logo {
+//     width: -10px;
+//     height: -50px;
+//     back
+// }
 
 .desktop-links {
     font-size: 24px;
