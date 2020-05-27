@@ -37,14 +37,19 @@ class CreatePost extends React.Component {
 			{ user_id } = this.props.user;
 		// console.log(this.props.user)
 		// {user_id} = this.props.user;
-		axios
-			.post('/api/post', { user_id, title, image, review })
-			.then(res => {
-				// Get posts
-				this.getPosts();
-				this.props.hideReviewForm();
-			})
-			.catch(err => console.log(err));
+		if(title && image && review){
+			axios
+				.post('/api/post', { user_id, title, image, review })
+				.then(res => {
+					// Get posts
+					this.getPosts();
+					this.props.hideReviewForm();
+				})
+				.catch(err => console.log(err));
+		}
+		else{
+			console.alert('Please enter all the fields!');
+		}
 
 		// console.log(this.props.posts);
 	}

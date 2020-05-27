@@ -117,7 +117,7 @@ class Login extends Component {
 						</>
 					) : (
 						<>
-							<button onClick={this.handleLogin}>Log In</button>
+							<button data-testid='submitLogin' onClick={this.handleLogin}>Log In</button>
 							<p>
 								Don't have an account?{' '}
 								<span onClick={this.handleToggle}>Register Here</span>
