@@ -55,6 +55,9 @@ routes.post("/post", posts.createPost);
 // delete a post by id
 routes.delete("/post/:id", posts.deletePost);
 
+/* like endpoint */
+routes.post("/post/:id", posts.likePost);
+
 /* comment endpoints */
 
 routes.post("/comments", comments.createComment);
