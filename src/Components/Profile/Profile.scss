@@ -1,9 +1,9 @@
 @import "../../variables";
 
 .profile-container {
-  //   position: relative;
+    // position: relative;
   height: calc(100vh - 150px);
-  background-color: white;
+  background-color: $secondary-font-color;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@
       margin-bottom: 10px;
       height: 42px;
       width: 300px;
-      background-color: #e5e5e5;
+      background-color: $secondary-color;
       color: #a3a0a0;
       border: none;
       // border-bottom: 2px solid white;
@@ -45,7 +45,7 @@
   .email-field {
     height: 42px;
 	width: 300px;
-	background-color: #e5e5e5;
+	background-color: $secondary-color;
 	color: #a3a0a0;
 	border: none;
 	// border-bottom: 2px solid white;
@@ -56,7 +56,7 @@
 
   .submit-button {
     @include button;
-    width: 125px;
+    width: 155px;
     // height: 50px;
     // border-radius: 50%;
     display: flex;
@@ -110,4 +110,11 @@
   margin-left: auto;
   margin-right: auto;
   opacity: 80%;
+}
+
+.liked-posts-container {
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    transform: translate( 60%);
 }
