@@ -23,32 +23,31 @@ class Comments extends React.Component {
       commentIndex++
     ) {
       let comment = arr[commentIndex];
+      console.log("RENDERCOMMENTS", comment);
       renderedComments.push(
-        <Comment text={comment.text} username={comment.username} />
+        <Comment
+          comment_id={comment.comment_id}
+          text={comment.comment}
+          username={comment.username || "FIX COMMENTS USERNAME"}
+        />
       );
     }
     return renderedComments;
   }
-  componentDidMount() {
-    this.setState({
-      ...this.state,
-      comments: this.renderComments(commentsMock),
+  componentWillMount() {
+    Axios.get(`/api/comments/post/${this.props.post_id}`).then((response) => {
+      console.log(response);
+      this.setState({
+        ...this.state,
+        comments: response.data || [],
+      });
     });
-    //   Axios.get(
-    //     "https://my.api.mockaroo.com/black_bird_reviews_comments_mock.json?key=b81e5900"
-    //   )
-    //     .then((response) => {
-    //       this.renderComments(response.data);
-    //     })
-    //     .catch((err) => {
-    //       console.error(err);
-    //     });
   }
   render() {
     return (
       <div className="Comments-container">
         {(this.state.comments || []).length > 0
-          ? this.state.comments
+          ? this.renderComments(this.state.comments)
           : "no comments here"}
       </div>
     );
