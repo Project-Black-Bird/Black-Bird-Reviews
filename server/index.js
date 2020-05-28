@@ -3,6 +3,7 @@ const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
 const routes = require("./routes");
+const path = require("path");
 const app = express();
 
 const {
@@ -16,9 +17,11 @@ const {
   SESSION_SECRET,
   SSL_MODE,
 } = process.env;
-let { SERVER_HOST, SERVER_PORT } = process.env;
-SERVER_HOST = SERVER_HOST || "localhost";
-SERVER_PORT = SERVER_PORT || 5050;
+
+let { SERVER_HOST, SERVER_PORT, HOST, PORT } = process.env;
+
+HOST = SERVER_HOST || HOST || "localhost";
+PORT = SERVER_PORT || PORT || 5050;
 
 app.use(express.json());
 
@@ -36,8 +39,8 @@ app.use(
     secret: SESSION_SECRET || "THIS IS A SECRET",
   })
 );
+app.use(express.static(path.join(__dirname, "..", "build")));
 app.use("/api", routes);
-
 massive({
   host: DATABASE_HOST,
   port: DATABASE_PORT,
@@ -50,7 +53,7 @@ massive({
   },
 }).then((db) => {
   app.set("db", db);
-  app.listen(SERVER_PORT, SERVER_HOST, (server) => {
-    console.log(`server listening on http://${SERVER_HOST}:${SERVER_PORT}`);
+  app.listen(PORT, HOST, (server) => {
+    console.log(`server listening on http://${HOST}:${PORT}`);
   });
 });
