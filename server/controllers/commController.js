@@ -5,7 +5,10 @@ module.exports = {
 
         db.comments.create_comment(user_id, comment, post_id)
             .then(()=> res.sendStatus(200))
-            .catch(err => res.status(500).send(err));
+            .catch(err => {
+                res.status(500).send(err)
+                console.log(err);
+            });
     },
     getUserComments: (req, res)=>{
         const {id} = req.params,
