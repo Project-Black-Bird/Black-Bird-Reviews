@@ -9,17 +9,17 @@ import Comment from "../Comment/Comment";
 class Comments extends React.Component {
   state = {
     comments: [],
-    limit: 2,
+    limit: 0,
   };
   constructor(props) {
     super(props);
   }
   renderComments(arr) {
     let renderedComments = [];
+    // let limit = this.state.comments.length
     for (
       let commentIndex = 0;
-      commentIndex <
-      (this.state.limit < arr.length ? this.state.limit : arr.length);
+      commentIndex < this.state.comments.length;
       commentIndex++
     ) {
       let comment = arr[commentIndex];
@@ -49,9 +49,9 @@ class Comments extends React.Component {
         {(this.state.comments || []).length > 0 ? (
           <>
             {this.renderComments(this.state.comments)}
-            <button className="comments-buttons" onClick={this.getMoreComments}>
+            {/* <button className="comments-buttons" onClick={this.getMoreComments}>
               View more comments
-            </button>
+            </button> */}
             <button className="comments-buttons" onClick={this.props.toggle}>
               Hide Comments
             </button>

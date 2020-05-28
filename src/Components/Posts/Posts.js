@@ -65,7 +65,7 @@ class Posts extends React.Component {
       user = user || {};
       // user.id = user.id || 0;
       // user.email = user.email || "blackbirdreviews@yahoo.com";
-
+      console.log("POSTS COMMENT COUNT", post.post_id, post.comment_count);
       if (
         search !== "" &&
         post.title.toLowerCase().indexOf(search.toLowerCase()) === -1
@@ -83,6 +83,7 @@ class Posts extends React.Component {
           likes={+post.likes_count || 0}
           user_id={post.user_id}
           username={post.name}
+          comments={+post.comment_count}
           updatePost={this.updatePost}
           deletePost={this.deletePost}
           likePost={this.likePost}

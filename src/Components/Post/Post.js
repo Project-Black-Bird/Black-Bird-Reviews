@@ -16,7 +16,9 @@ class Post extends React.Component {
     seeMoreReview: false,
     reviewPreviewLength: 150,
   };
-
+  componentDidMount() {
+    console.log("--POST-- Comment count", this.props.comments);
+  }
   constructor(props) {
     super(props);
     this.enterEditMode = this.enterEditMode.bind(this);
@@ -140,7 +142,7 @@ class Post extends React.Component {
                         d="M17,0H1C0.448,0,0,0.448,0,1v11c0,0.552,0.448,1,1,1h3v5.469L11,13h6c0.552,0,1-0.448,1-1V1 C18,0.448,17.552,0,17,0z"></path>
                     </g>
                   </svg>
-                  Comment {(this.props.comments || []).length}
+                  Comment {this.props.comments}
                 </button>
                 <>|</>
                 <button
@@ -191,7 +193,7 @@ class Post extends React.Component {
           <CommentForm post_id={this.props.post_id} edit={this.state.edit} />
         ) : null}
         {this.state.showComments ? (
-          <Comments post_id={this.props.post_id} />
+          <Comments post_id={this.props.post_id} toggle={this.toggleComments} />
         ) : null}
       </div>
     );
@@ -206,6 +208,7 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   likes: PropTypes.number.isRequired,
   user: PropTypes.object.isRequired,
+  comments: PropTypes.number.isRequired,
 };
 function mapStateToProps(state) {
   const { user } = state;
