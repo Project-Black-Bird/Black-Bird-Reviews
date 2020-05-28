@@ -1,21 +1,37 @@
 @import '../../../variables';
 
 .EditPost-container {
+	font-family: $primary-font-family;
 	display: contents;
 	.img {
 		grid-area: img;
 	}
+	input,
+	textarea {
+		border: 1px solid rgb(118, 118, 118);
+	}
 	input[name='image'] {
 		grid-area: img-input;
+		font-family: $primary-font-family;
+		background-color: $secondary-color;
 	}
 	input[name='title'] {
 		grid-area: title;
+		font-family: $primary-font-family;
+		font-size: 1.5rem;
+		font-weight: bold;
+		background-color: $secondary-color;
+
+		// color: rgb(68, 51, 51);
+		// font-size: 16px;
 	}
 	textarea[name='review'] {
 		grid-area: review;
 		width: 100%;
 		height: 100%;
 		resize: none;
+		font-family: $primary-font-family;
+		background-color: $secondary-color;
 	}
 	button[type='submit'] {
 		grid-area: actions;

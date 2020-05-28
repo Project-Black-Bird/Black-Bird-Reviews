@@ -202,4 +202,15 @@ $actions-height: $line-height * 1.25;
 			height: auto;
 		}
 	}
+	.Post-container[data-see-more-review='true'][data-edit='true'] {
+		grid-template-areas:
+			'title'
+			'img'
+			'img-input'
+			'review'
+			'hideReview'
+			'actions'
+			'commentForm'
+			'comments';
+	}
 }
