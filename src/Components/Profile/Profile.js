@@ -4,7 +4,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/reducer";
 import { logoutUser } from "../../redux/reducer";
-// import { withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Profile extends Component {
   constructor(props) {
@@ -17,11 +17,11 @@ class Profile extends Component {
     };
   }
 
-//   componentDidMount() {
-//     if (!this.props.user.email) {
-//       this.props.history.push("/profile");
-//     }
-//   }
+  componentDidMount() {
+    if (!this.props.user.email) {
+      this.props.history.push("/");
+    }
+  }
 
   handleEditView = () => {
     this.setState({ editView: !this.state.editView });
