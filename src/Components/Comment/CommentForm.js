@@ -1,43 +1,47 @@
 import React, { Component } from "react";
 import "./CommentForm.scss";
-import { connect } from 'react-redux';
-import axios from 'axios';
+import { connect } from "react-redux";
+import axios from "axios";
 
 class CommentForm extends Component {
-
   state = {
-  	comment: '',
+    comment: "",
   };
-
-  handleChange = e => {
+  constructor(props) {
+    super(props);
+  }
+  handleChange = (e) => {
     this.setState({ ...this.state, [e.target.name]: e.target.value });
   };
-  handleSubmit = e => {
-    const {comment} = this.state;
+  handleSubmit = (e) => {
+    const { comment } = this.state;
     e.preventDefault();
-    if(comment){
-			axios
-				.post('/api/comment', { user_id:this.props.user.user_id, comment, post_id:this.props.post_id })
-				.then(() => {
-					
-				})
-				.catch(err => console.log(err));
-		}
-		else{
-			window.alert('Please enter all the fields!');
-		}
+    if (comment) {
+      axios
+        .post("/api/comment", {
+          user_id: this.props.user.user_id,
+          comment,
+          post_id: this.props.post_id,
+        })
+        .then(() => {})
+        .catch((err) => console.log(err));
+    } else {
+      window.alert("Please enter all the fields!");
+    }
   };
 
   render() {
     // console.log(this.props.edit);
     return (
-      <form className="CommentForm-container" onSubmit={e => this.handleSubmit(e)}>
+      <form
+        className="CommentForm-container"
+        onSubmit={(e) => this.handleSubmit(e)}>
         {/* <h4>Write your comment</h4> */}
         <textarea
           type="text"
           label="Comment"
           name="comment"
-          onChange={e => this.handleChange(e)}
+          onChange={this.handleChange}
           className="textArea"
           placeholder="Type your comment here..."
         />
@@ -52,8 +56,8 @@ class CommentForm extends Component {
 }
 
 function mapStateToProps(state) {
-	let { user} = state;
-	return { user};
+  let { user } = state;
+  return { user };
 }
-const mapDispatchToProps = { };
+const mapDispatchToProps = {};
 export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);

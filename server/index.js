@@ -3,6 +3,7 @@ const express = require("express");
 const massive = require("massive");
 const session = require("express-session");
 const routes = require("./routes");
+const path = require("path");
 const app = express();
 
 const {
@@ -19,8 +20,8 @@ const {
 
 let { SERVER_HOST, SERVER_PORT, HOST, PORT } = process.env;
 
-let HOST = SERVER_HOST || HOST || "localhost";
-let PORT = SERVER_PORT || PORT || 5050;
+HOST = SERVER_HOST || HOST || "localhost";
+PORT = SERVER_PORT || PORT || 5050;
 
 app.use(express.json());
 
