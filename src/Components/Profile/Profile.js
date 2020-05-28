@@ -17,11 +17,11 @@ class Profile extends Component {
 		};
 	}
 
-	//   componentDidMount() {
-	//     if (!this.props.user.email) {
-	//       this.props.history.push("/profile");
-	//     }
-	//   }
+  componentDidMount() {
+    if (!this.props.user.email) {
+      this.props.history.push("/");
+    }
+  }
 
 	handleEditView = () => {
 		this.setState({ editView: !this.state.editView });
