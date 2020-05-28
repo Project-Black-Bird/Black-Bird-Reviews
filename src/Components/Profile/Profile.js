@@ -103,23 +103,6 @@ class Profile extends Component {
 								</button>
 							</span>
 
-<<<<<<< HEAD
-              <div>
-                <button className="logout-button" onClick={this.handleLogout}>
-                  Log Out
-                </button>
-              </div>
-            </div>
-          )}
-        </span>
-        <span className="user-name">
-          <h2>{this.props.user.name}</h2>
-        </span>
-     
-      </div>
-    );
-  }
-=======
 							<div>
 								<button className="logout-button" onClick={this.handleLogout}>
 									Log Out
@@ -134,7 +117,6 @@ class Profile extends Component {
 			</div>
 		);
 	}
->>>>>>> master
 }
 
 const mapStateToProps = reduxState => reduxState;
