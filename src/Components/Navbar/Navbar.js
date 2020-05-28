@@ -24,6 +24,7 @@ class Navbar extends Component {
 			<div className="nav-container">
 				<h1>
 					<svg
+						className="bird-icon"
 						xmlns="http://www.w3.org/2000/svg"
 						width="54"
 						height="54"
@@ -55,7 +56,8 @@ class Navbar extends Component {
 							onClick={() => this.handleToggle}
 						>
 							{/* Log In */}
-							<svg className="nav-icon"
+							<svg
+								className="nav-icon"
 								xmlns="http://www.w3.org/2000/svg"
 								width="42"
 								height="42"
