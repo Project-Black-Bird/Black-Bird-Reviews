@@ -1,5 +1,9 @@
+
 DELETE FROM comments
 WHERE post_id = $1;
 
+DELETE FROM likes
+WHERE post_id = $1;
+
 DELETE FROM posts
-where post_id = $1;
+WHERE post_id = $1;
