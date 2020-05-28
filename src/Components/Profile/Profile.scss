@@ -2,11 +2,14 @@
 
 .profile-container {
   // position: relative;
-  height: calc(100vh - 150px);
+  // height: calc(100vh - 150px);
+  height: 100vh;
+  width: 100vw;
   background-color: $secondary-font-color;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 
   .user-name {
     width: 360px;

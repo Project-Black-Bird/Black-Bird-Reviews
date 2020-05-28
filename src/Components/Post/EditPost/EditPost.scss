@@ -15,12 +15,13 @@
     resize: none;
   }
   button[type="submit"] {
-    grid-area: actions;
+    // grid-area: actions;
     outline: none;
     height: 24px;
     font-family: $primary-font-family;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
+    border: none;
     width: 75px;
     margin-left: 45%;
     background-color: $primary-color;
