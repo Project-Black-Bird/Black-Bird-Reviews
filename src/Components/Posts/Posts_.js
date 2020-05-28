@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Post from "../Post/Post";
-import "./Posts.scss";
+import "./Posts.css";
 import posts from "./POSTS_MOCK.json";
 import { getPosts } from "../../redux/reducer";
 import CreatePost from "../Post/CreatePost/CreatePost";
@@ -18,7 +18,6 @@ class Posts extends React.Component {
     this.toggleReviewForm = this.toggleReviewForm.bind(this);
     this.getAllPosts = this.getAllPosts.bind(this);
     this.deletePost = this.deletePost.bind(this);
-    this.likePost = this.likePost.bind(this);
   }
 
   getAllPosts() {
@@ -49,15 +48,6 @@ class Posts extends React.Component {
       .catch((err) => console.log(err));
   }
 
-  likePost(post_id, user_id) {
-    axios
-      .post(`/api/post/${post_id}`, { post_id, user_id })
-      .then(() => {
-        this.getAllPosts();
-      })
-      .catch((err) => console.log(err));
-  }
-
   renderPosts() {
     return this.props.posts.map((post) => {
       const { search } = this.state;
@@ -75,17 +65,15 @@ class Posts extends React.Component {
 
       return (
         <Post
-          key={post.post_id}
           post_id={post.post_id}
           image={post.image}
           title={post.title}
           review={post.review}
-          likes={+post.likes_count || 0}
+          likes={post.likes || 0}
           user_id={post.user_id}
           username={post.name}
           updatePost={this.updatePost}
           deletePost={this.deletePost}
-          likePost={this.likePost}
         />
       );
     });
@@ -116,13 +104,13 @@ class Posts extends React.Component {
             <button
               className="create-review-btn"
               onClick={this.toggleReviewForm}>
-              Write a Review
+              Create a Review
             </button>
           ) : null}
 
           <div>
             <div className="container-input">
-              <button type="submit" className="search-button">
+              <button type="submit" class="search-button">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="26"
