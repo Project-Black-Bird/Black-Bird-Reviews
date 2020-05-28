@@ -63,16 +63,12 @@ class Posts extends React.Component {
       const { search } = this.state;
       let user = { ...(this.props.user || {}) };
       user = user || {};
-      // user.id = user.id || 0;
-      // user.email = user.email || "blackbirdreviews@yahoo.com";
-      console.log("POSTS COMMENT COUNT", post.post_id, post.comment_count);
       if (
         search !== "" &&
         post.title.toLowerCase().indexOf(search.toLowerCase()) === -1
       ) {
         return null;
       }
-
       return (
         <Post
           key={post.post_id}

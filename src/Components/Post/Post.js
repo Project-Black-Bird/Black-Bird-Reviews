@@ -16,9 +16,7 @@ class Post extends React.Component {
     seeMoreReview: false,
     reviewPreviewLength: 150,
   };
-  componentDidMount() {
-    console.log("--POST-- Comment count", this.props.comments);
-  }
+
   constructor(props) {
     super(props);
     this.enterEditMode = this.enterEditMode.bind(this);
@@ -44,7 +42,8 @@ class Post extends React.Component {
     return (
       <div
         className="Post-container"
-        data-see-more-review={this.state.seeMoreReview}>
+        data-see-more-review={this.state.seeMoreReview}
+        data-edit={this.state.edit}>
         {this.state.edit ? (
           <EditPost
             // post_id={this.props.post_id}
