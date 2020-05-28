@@ -212,7 +212,7 @@ class Post extends React.Component {
                   Comment {(this.props.comments || []).length}
                 </button>
                 <>|</>
-                <button type="button" className="action-buttons" onClick={()=>this.props.likePost(this.props.post_id, this.props.user_id)}>
+                <button type="button" className="action-buttons" onClick={()=>this.props.likePost(this.props.post_id, this.props.user.user_id)}>
                   <svg
                     className="space"
                     xmlns="http://www.w3.org/2000/svg"
