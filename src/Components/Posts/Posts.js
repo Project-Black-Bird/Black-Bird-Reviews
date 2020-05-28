@@ -49,13 +49,13 @@ class Posts extends React.Component {
 			.catch(err => console.log(err));
 	}
 
-	likePost(post_id, user_id){
+	likePost(post_id, user_id) {
 		axios
-			.post(`/api/post/${post_id}`, {post_id,user_id})
-			.then(()=>{
+			.post(`/api/post/${post_id}`, { post_id, user_id })
+			.then(() => {
 				this.getAllPosts();
 			})
-			.catch(err =>console.log(err));
+			.catch(err => console.log(err));
 	}
 
 	renderPosts() {
