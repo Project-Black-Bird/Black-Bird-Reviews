@@ -23,17 +23,17 @@
 	.edit-fields-container {
 		height: 375px;
 		width: 275px;
+		color: #a3a0a0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		// font-family: $primary-font-family;
+		font-family: $primary-font-family;
 	}
 
 	.image-field {
-		margin-bottom: 10px;
 		height: 42px;
 		width: 300px;
-		background-color: $secondary-color;
+		background-color: #e5e5e5;
 		color: #a3a0a0;
 		border: none;
 		// border-bottom: 2px solid white;
@@ -45,7 +45,7 @@
 	.email-field {
 		height: 42px;
 		width: 300px;
-		background-color: $secondary-color;
+		background-color: #e5e5e5;
 		color: #a3a0a0;
 		border: none;
 		// border-bottom: 2px solid white;
@@ -61,6 +61,7 @@
 		// border-radius: 50%;
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		margin-top: 30px;
 		margin-left: auto;
 		margin-right: auto;
@@ -106,6 +107,7 @@
 	text-align: center;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	margin-top: 15px;
 	margin-left: auto;
 	margin-right: auto;
@@ -117,4 +119,7 @@
 	display: flex;
 	justify-content: left;
 	transform: translate(60%);
+}
+
+@media screen and (min-width: 500px) {
 }
