@@ -27,6 +27,7 @@ $actions-height: $line-height * 1.25;
 	font-family: $primary-font-family;
 	grid-template-areas:
 		'img'
+		'img-input'
 		'title'
 		'review'
 		'actions'
@@ -35,7 +36,7 @@ $actions-height: $line-height * 1.25;
 	display: grid;
 	img {
 		grid-area: img;
-		width: auto;
+		width: 80%;
 		height: auto;
 		justify-self: center;
 	}
@@ -86,6 +87,7 @@ $actions-height: $line-height * 1.25;
 	.action-buttons {
 		background-color: #c7cbcc;
 		border: none;
+
 		cursor: pointer;
 		font-family: $primary-font-family;
 		.space {
@@ -126,17 +128,17 @@ $actions-height: $line-height * 1.25;
 		padding-right: 0;
 	}
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 768px) {
 	.Post-container {
 		width: 90%;
 		column-gap: 1em;
 		line-height: $line-height;
-		grid-template-columns: minmax(3em, 1fr) 3fr;
+		grid-template-columns: minmax(3em, 3fr) 5fr;
 		grid-template-rows: $title-row-height $review-height $actions-height auto auto;
 		grid-template-areas:
 			'img title'
 			'img review'
-			'img actions'
+			'actions actions'
 			'commentForm commentForm'
 			'comments comments';
 		img {
@@ -161,9 +163,20 @@ $actions-height: $line-height * 1.25;
 			margin-right: 10%;
 		}
 	}
+	.Post-container[data-edit='true'] {
+		grid-template-areas:
+			'img title'
+			'img review'
+			'img-input actions'
+			'commentForm commentForm'
+			'comments comments';
+	}
 	.Post-container[data-see-more-review='true'] {
 		.title {
 			text-align: center;
+		}
+		.actions {
+			margin-right: calc(1em + 16px);
 		}
 		align-content: center;
 		justify-content: center;
@@ -183,5 +196,10 @@ $actions-height: $line-height * 1.25;
 				3,
 				auto
 			);
+		row-gap: 2em;
+		img {
+			max-height: unset;
+			height: auto;
+		}
 	}
 }

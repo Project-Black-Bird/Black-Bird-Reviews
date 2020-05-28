@@ -75,11 +75,12 @@ class Posts extends React.Component {
 
 			return (
 				<Post
+					key={post.post_id}
 					post_id={post.post_id}
 					image={post.image}
 					title={post.title}
 					review={post.review}
-					likes={post.likes_count || 0}
+					likes={+post.likes_count || 0}
 					user_id={post.user_id}
 					username={post.name}
 					updatePost={this.updatePost}
