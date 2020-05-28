@@ -15,10 +15,6 @@ class Post extends React.Component {
     showComments: false,
     seeMoreReview: false,
     reviewPreviewLength: 150,
-    commentsPerPage: 5,
-    commentsLimit: 0,
-    comments: [],
-    renderedComments: [],
   };
 
   constructor(props) {
@@ -27,22 +23,10 @@ class Post extends React.Component {
     this.doneEditing = this.doneEditing.bind(this);
     this.toggleComments = this.toggleComments.bind(this);
     this.toggleMoreReview = this.toggleMoreReview.bind(this);
-    this.state.commentsLimit = this.initialCommentsLimit;
   }
 
   toggleComments() {
-    if (this.state.showComments === false) {
-      // get the latest comments
-      this.setState({ ...this.state, comments: CommentsMock }, () => {
-        this.setState({
-          ...this.state,
-          renderedComments: this.renderComments(),
-          showComments: true,
-        });
-      });
-    } else {
-      this.setState({ ...this.state, showComments: !this.state.showComments });
-    }
+    this.setState({ ...this.state, showComments: !this.state.showComments });
   }
   enterEditMode() {
     this.setState({ ...this.state, edit: !this.state.edit });
@@ -50,28 +34,6 @@ class Post extends React.Component {
   doneEditing({ title, image, review }) {
     this.props.updatePost(this.props.post_id, title, image, review);
     this.setState({ ...this.state, edit: false });
-  }
-  renderComments(arr) {
-    let renderedComments = [];
-    for (
-      let commentIndex = 0;
-      commentIndex <
-      (this.state.commentsLimit < this.state.comments.length
-        ? this.state.commentsLimit
-        : this.state.comments.length);
-      commentIndex++
-    ) {
-      let comment = this.state.comments[commentIndex];
-      renderedComments.push(
-        <Comment
-          comment_id={comment.comment_id}
-          text={comment.text}
-          username={comment.username}
-        />
-      );
-      this.setState({ ...this.state, renderedComments });
-    }
-    return renderedComments;
   }
   toggleMoreReview() {
     this.setState({ ...this.state, seeMoreReview: !this.state.seeMoreReview });

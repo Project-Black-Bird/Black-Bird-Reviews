@@ -39,8 +39,8 @@ app.use(
     secret: SESSION_SECRET || "THIS IS A SECRET",
   })
 );
+app.use(express.static(path.join(__dirname, "..", "build")));
 app.use("/api", routes);
-app.use(express.static(path.join("../build")));
 massive({
   host: DATABASE_HOST,
   port: DATABASE_PORT,

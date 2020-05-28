@@ -23,9 +23,9 @@ class Comments extends React.Component {
       commentIndex++
     ) {
       let comment = arr[commentIndex];
-      console.log("RENDERCOMMENTS", comment);
       renderedComments.push(
         <Comment
+          key={comment.comment_id}
           comment_id={comment.comment_id}
           text={comment.comment}
           username={comment.username || "FIX COMMENTS USERNAME"}
@@ -46,9 +46,19 @@ class Comments extends React.Component {
   render() {
     return (
       <div className="Comments-container">
-        {(this.state.comments || []).length > 0
-          ? this.renderComments(this.state.comments)
-          : "no comments here"}
+        {(this.state.comments || []).length > 0 ? (
+          <>
+            {this.renderComments(this.state.comments)}
+            <button className="comments-buttons" onClick={this.getMoreComments}>
+              View more comments
+            </button>
+            <button className="comments-buttons" onClick={this.props.toggle}>
+              Hide Comments
+            </button>
+          </>
+        ) : (
+          "no comments here"
+        )}
       </div>
     );
   }
