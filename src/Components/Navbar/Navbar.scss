@@ -11,7 +11,7 @@
     justify-content: space-around;
     background-repeat: no-repeat;
     background-position: left;
-    background-size: 120px;    
+    background-size: 120px;
 }
 
 .nav-logo {
@@ -31,7 +31,7 @@
 // }
 
 .desktop-links {
-    font-size: 24px;
+    font-size: 60px;
     // align-items: center;
     // display: none;
 
@@ -55,3 +55,7 @@
 //     font-size: 24px;
 //     line-height: 36px;
 // }
+
+.nav-icon {
+    height: 50px;
+}

@@ -108,6 +108,7 @@ $actions-height: $line-height * 1.25;
 	@include button;
 	width: 200px;
 	height: 2.5em;
+	margin-left: 10px;
 }
 
 .Post-container[data-see-more-review='true'] {
