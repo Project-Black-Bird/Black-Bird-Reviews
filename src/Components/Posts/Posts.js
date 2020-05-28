@@ -122,7 +122,7 @@ class Posts extends React.Component {
 
 					<div>
 						<div className="container-input">
-							<button type="submit" class="search-button">
+							<button type="submit" className="search-button">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									width="26"
