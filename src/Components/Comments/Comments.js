@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import connect from "react-redux";
 
 import "./Comments.scss";
 import commentsMock from "./COMMENTS_MOCK.json";
@@ -13,6 +14,14 @@ class Comments extends React.Component {
   };
   constructor(props) {
     super(props);
+  }
+  componentDidUpdate() {
+    if (this.props.update.commentCount) {
+      console.log("Component requested update comment count");
+    }
+    if (this.props.update.comments) {
+      console.log("Component requested update comments");
+    }
   }
   renderComments(arr) {
     let renderedComments = [];
@@ -34,7 +43,7 @@ class Comments extends React.Component {
     }
     return renderedComments;
   }
-  componentWillMount() {
+  getComments() {
     Axios.get(`/api/comments/post/${this.props.post_id}`).then((response) => {
       console.log(response);
       this.setState({
@@ -42,6 +51,9 @@ class Comments extends React.Component {
         comments: response.data || [],
       });
     });
+  }
+  componentWillMount() {
+    this.getComments();
   }
   render() {
     return (

@@ -7,6 +7,7 @@ import "./Post.scss";
 import Comments from "../Comments/Comments";
 import Comment from "../Comment/Comment";
 import CommentsMock from "../Comments/COMMENTS_MOCK.json";
+import { updateCommentsCountDone } from "../../redux/reducer";
 import Axios from "axios";
 class Post extends React.Component {
   initialCommentsLimit = 3;
@@ -23,8 +24,11 @@ class Post extends React.Component {
     this.doneEditing = this.doneEditing.bind(this);
     this.toggleComments = this.toggleComments.bind(this);
     this.toggleMoreReview = this.toggleMoreReview.bind(this);
+    this.updateCommentCount = this.updateCommentCount.bind(this);
   }
-
+  updateCommentCount() {
+    console.log("UPDATING COMMENTS COUNT");
+  }
   toggleComments() {
     this.setState({ ...this.state, showComments: !this.state.showComments });
   }
@@ -200,7 +204,10 @@ class Post extends React.Component {
           />
         ) : null}
         {this.state.showComments ? (
-          <Comments post_id={this.props.post_id} />
+          <Comments
+            updateCount={this.updateCommentCount}
+            post_id={this.props.post_id}
+          />
         ) : null}
       </div>
     );
@@ -218,8 +225,8 @@ Post.propTypes = {
   comments: PropTypes.number.isRequired,
 };
 function mapStateToProps(state) {
-  const { user } = state;
-  return { user };
+  const { user, update } = state;
+  return { user, update };
 }
-const mapDispatchToProps = {};
+const mapDispatchToProps = { updateCommentsCountDone };
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

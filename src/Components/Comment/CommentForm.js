@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./CommentForm.scss";
 import { connect } from "react-redux";
 import axios from "axios";
+import { addComment } from "../../redux/reducer";
 
 class CommentForm extends Component {
   state = {
@@ -28,14 +29,14 @@ class CommentForm extends Component {
         })
         .then((res) => {
           // console.log(res.data);
-          if(this.props.showComments){
+          this.props.addComment();
+          if (this.props.showComments) {
             this.props.toggleComments();
+            this.props.toggleComments();
+          } else {
             this.props.toggleComments();
           }
-          else{
-            this.props.toggleComments();
-          }
-          this.setState({comment:""});
+          this.setState({ comment: "" });
         })
         .catch((err) => console.log(err));
     } else {
@@ -73,5 +74,5 @@ function mapStateToProps(state) {
   let { user } = state;
   return { user };
 }
-const mapDispatchToProps = {};
+const mapDispatchToProps = { addComment };
 export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);
