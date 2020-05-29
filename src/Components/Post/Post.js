@@ -148,7 +148,10 @@ class Post extends React.Component {
                   type="button"
                   className="action-buttons"
                   onClick={() =>
-                    this.props.likePost(this.props.post_id, this.props.user_id)
+                    this.props.likePost(
+                      this.props.post_id,
+                      this.props.user.user_id
+                    )
                   }>
                   <svg
                     className="space"
@@ -189,10 +192,15 @@ class Post extends React.Component {
           </>
         )}
         {this.props.user.user_id && this.props.user.email ? (
-          <CommentForm post_id={this.props.post_id} edit={this.state.edit} />
+          <CommentForm
+            post_id={this.props.post_id}
+            edit={this.state.edit}
+            showComments={this.state.showComments}
+            toggleComments={this.toggleComments}
+          />
         ) : null}
         {this.state.showComments ? (
-          <Comments post_id={this.props.post_id} toggle={this.toggleComments} />
+          <Comments post_id={this.props.post_id} />
         ) : null}
       </div>
     );

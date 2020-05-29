@@ -17,13 +17,26 @@ class CommentForm extends Component {
     const { comment } = this.state;
     e.preventDefault();
     if (comment) {
+      // console.log(this.props.user.user_id);
+      // console.log(this.props.post_id);
+      // console.log(comment);
       axios
-        .post("/api/comment", {
+        .post("/api/comments", {
           user_id: this.props.user.user_id,
           comment,
           post_id: this.props.post_id,
         })
-        .then(() => {})
+        .then((res) => {
+          // console.log(res.data);
+          if(this.props.showComments){
+            this.props.toggleComments();
+            this.props.toggleComments();
+          }
+          else{
+            this.props.toggleComments();
+          }
+          this.setState({comment:""});
+        })
         .catch((err) => console.log(err));
     } else {
       window.alert("Please enter all the fields!");
@@ -40,6 +53,7 @@ class CommentForm extends Component {
         <textarea
           type="text"
           label="Comment"
+          value={this.state.comment}
           name="comment"
           onChange={this.handleChange}
           className="textArea"

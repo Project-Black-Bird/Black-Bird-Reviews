@@ -59,6 +59,10 @@ module.exports = {
   likePost: (req, res) => {
     const { post_id, user_id } = req.body,
       db = req.app.get("db");
+    if(user_id == null){
+      res.status(400).send('User was undefined or null');
+      return;
+    }
     db.likes
       .add_like(post_id, user_id)
       .then(() => res.sendStatus(200))
