@@ -15,14 +15,6 @@ class Comments extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentDidUpdate() {
-    if (this.props.update.commentCount) {
-      console.log("Component requested update comment count");
-    }
-    if (this.props.update.comments) {
-      console.log("Component requested update comments");
-    }
-  }
   renderComments(arr) {
     let renderedComments = [];
     // let limit = this.state.comments.length
@@ -64,9 +56,9 @@ class Comments extends React.Component {
             {/* <button className="comments-buttons" onClick={this.getMoreComments}>
               View more comments
             </button> */}
-            <button className="comments-buttons" onClick={this.props.toggle}>
+            {/* <button className="comments-buttons" onClick={this.props.toggle}>
               Hide Comments
-            </button>
+            </button> */}
           </>
         ) : (
           "no comments here"

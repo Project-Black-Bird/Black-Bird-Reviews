@@ -16,6 +16,7 @@ class Post extends React.Component {
     showComments: false,
     seeMoreReview: false,
     reviewPreviewLength: 150,
+    comments: this.props.comments,
   };
 
   constructor(props) {
@@ -27,7 +28,12 @@ class Post extends React.Component {
     this.updateCommentCount = this.updateCommentCount.bind(this);
   }
   updateCommentCount() {
-    console.log("UPDATING COMMENTS COUNT");
+    Axios.get(`/api/comments/count/${this.props.post_id}`)
+      .then((response) => {
+        console.log("UPDATING COMMENTS COUNT");
+        this.setState({ ...this.state, comments: response.data.count });
+      })
+      .catch(console.error);
   }
   toggleComments() {
     this.setState({ ...this.state, showComments: !this.state.showComments });
@@ -145,7 +151,7 @@ class Post extends React.Component {
                         d="M17,0H1C0.448,0,0,0.448,0,1v11c0,0.552,0.448,1,1,1h3v5.469L11,13h6c0.552,0,1-0.448,1-1V1 C18,0.448,17.552,0,17,0z"></path>
                     </g>
                   </svg>
-                  Comment {this.props.comments}
+                  Comment {this.state.comments}
                 </button>
                 <>|</>
                 <button
@@ -173,8 +179,8 @@ class Post extends React.Component {
                   </svg>
                   {`Like ${this.props.likes || 0}`}
                 </button>
-                <>|</>
-                <button type="action-buttons" className="action-buttons">
+                {/* <>|</> */}
+                {/* <button type="action-buttons" className="action-buttons">
                   <svg
                     className="space"
                     xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +196,7 @@ class Post extends React.Component {
                     </g>
                   </svg>
                   Share
-                </button>
+                </button> */}
               </span>
             </div>
           </>
@@ -201,6 +207,7 @@ class Post extends React.Component {
             edit={this.state.edit}
             showComments={this.state.showComments}
             toggleComments={this.toggleComments}
+            updateCommentCount={this.updateCommentCount}
           />
         ) : null}
         {this.state.showComments ? (

@@ -29,7 +29,8 @@ class CommentForm extends Component {
         })
         .then((res) => {
           // console.log(res.data);
-          this.props.addComment();
+          // this.props.addComment();
+          this.props.updateCommentCount();
           if (this.props.showComments) {
             this.props.toggleComments();
             this.props.toggleComments();
