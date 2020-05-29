@@ -1,157 +1,157 @@
-@import '../../variables';
+@import "../../variables";
 
 .profile-container {
-	// position: relative;
-	height: calc(100vh - 150px);
-	background-color: $secondary-font-color;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  // position: relative;
+  height: calc(100vh - 150px);
+  background-color: $secondary-font-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	.user-name {
-		width: 360px;
-		right: 758px;
-		top: 332px;
-		font-size: 36px;
-		font-family: $primary-font-family;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		height: calc(250px);
-	}
-	.user-name[data-edit='true'] {
-		display: none;
-	}
+  .user-name {
+    width: 360px;
+    right: 758px;
+    top: 332px;
+    font-size: 36px;
+    font-family: $primary-font-family;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(250px);
+  }
+  .user-name[data-edit="true"] {
+    display: none;
+  }
 
-	.edit-fields-container {
-		height: 375px;
-		width: 275px;
-		color: #a3a0a0;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		font-family: $primary-font-family;
-	}
+  .edit-fields-container {
+    height: 375px;
+    width: 275px;
+    color: #a3a0a0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: $primary-font-family;
+  }
 
-	.image-field {
-		height: 42px;
-		width: 300px;
-		background-color: #e5e5e5;
-		color: #a3a0a0;
-		border: none;
-		// border-bottom: 2px solid white;
-		margin-bottom: 20px;
-		font-size: 16px;
-		padding-left: 20px;
-	}
+  .image-field {
+    height: 42px;
+    width: 300px;
+    background-color: #e5e5e5;
+    color: #a3a0a0;
+    border: none;
+    // border-bottom: 2px solid white;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding-left: 20px;
+  }
 
-	.email-field {
-		height: 42px;
-		width: 300px;
-		background-color: #e5e5e5;
-		color: #a3a0a0;
-		border: none;
-		// border-bottom: 2px solid white;
-		margin-bottom: 20px;
-		font-size: 16px;
-		padding-left: 20px;
-	}
+  .email-field {
+    height: 42px;
+    width: 300px;
+    background-color: #e5e5e5;
+    color: #a3a0a0;
+    border: none;
+    // border-bottom: 2px solid white;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding-left: 20px;
+  }
 
-	.submit-button {
-		@include button;
-		width: 155px;
-		// height: 50px;
-		// border-radius: 50%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-top: 30px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+  .submit-button {
+    @include button;
+    width: 155px;
+    // height: 50px;
+    // border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-	.profile-picture {
-		height: 300px;
-		width: 300px;
-		border-radius: 50%;
-		display: flex;
-		justify-content: center;
-	}
+  .profile-picture {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+  }
 
-	.logout-button {
-		@include button;
-		width: 125px;
-		// height: 50px;
-		// border-radius: 50%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-top: -20px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+  .logout-button {
+    @include button;
+    width: 125px;
+    // height: 50px;
+    // border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .edit-button {
-	position: relative;
-	// top: 30%;
-	left: 30%;
-	transform: translate(15%, -160%);
-	// -ms-transform: translate(-50%, -50%);
-	background-color: #555;
-	color: white;
-	// font-size: 16px;
-	// padding: 12px 24px;
-	border: none;
-	cursor: pointer;
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	opacity: 80%;
+  position: relative;
+  // top: 30%;
+  left: 30%;
+  transform: translate(15%, -160%);
+  // -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  // font-size: 16px;
+  // padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 80% !important;
 }
 
 .liked-posts-container {
-	position: absolute;
-	display: flex;
-	justify-content: left;
-	transform: translate(60%);
+  position: absolute;
+  display: flex;
+  justify-content: left;
+  transform: translate(60%);
 }
 
 @media (max-width: 500px) {
-	.profile-container {
-		.profile-picture {
-			height: 200px;
-			width: 200px;
-			margin-left: 30px;
-		}
-		.user-name {
-			width: 150px;
-			font-size: 16px;
-			margin-top: 20px;
-			margin-right: 30px;
-		}
-		.edit-button {
-			position: relative;
-			left: 38%;
-			transform: translate(15%, -160%);
-		}
-		.edit-fields-container {
-			width: 300px;
-		}
+  .profile-container {
+    .profile-picture {
+      height: 200px;
+      width: 200px;
+      margin-left: 30px;
+    }
+    .user-name {
+      width: 150px;
+      font-size: 16px;
+      margin-top: 20px;
+      margin-right: 30px;
+    }
+    .edit-button {
+      position: relative;
+      left: 38%;
+      transform: translate(15%, -160%);
+    }
+    .edit-fields-container {
+      width: 300px;
+    }
 
-		.image-field {
-			width: 200px;
-		}
+    .image-field {
+      width: 200px;
+    }
 
-		.email-field {
-			width: 200px;
-		}
-	}
+    .email-field {
+      width: 200px;
+    }
+  }
 }
