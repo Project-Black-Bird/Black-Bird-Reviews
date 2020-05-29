@@ -1,0 +1,1 @@
+select coalesce(count(*),0) as count from comments where post_id = 54;

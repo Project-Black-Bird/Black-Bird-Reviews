@@ -62,6 +62,7 @@ routes.post("/post/:id", posts.likePost);
 
 routes.post("/comments", comments.createComment);
 routes.get("/comments/post/:id", comments.getPostComments);
+routes.get("/comments/count/:post_id", comments.getCommentCountForPost);
 routes.put("/comments/:id", comments.editUserComment);
 routes.get("/comments/:id", comments.getUserComments);
 routes.delete("/comments/:id", comments.deleteUserComment);
